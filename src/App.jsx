@@ -4,7 +4,10 @@ import Home from './Components/home';
 import About from './Components/about';
 import Header from './Components/header';
 import Footer from './Components/footer';
+import Contact from './Components/contact';
 import NotFound from './Components/notFound';
+import Services from './Components/services';
+import Readings from './Components/readings';
 import { Switch, Route, useLocation, BrowserRouter as Router } from 'react-router-dom/cjs/react-router-dom';
 
 function App() { return <Router><AppContent /></Router> }
@@ -17,6 +20,9 @@ function AppContent() {
       <Switch>
         <Route exact path="/" render={() => <Home />} />
         <Route exact path="/about" render={() => <About />} />
+        <Route exact path="/services" render={() => <Services />} />
+        <Route exact path="/readings" render={() => <Readings />} />
+        <Route exact path="/contact" render={() => <Contact />} />
         <Route render={() => <NotFound />} />
       </Switch>
       <Footer />
