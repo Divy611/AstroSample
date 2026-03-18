@@ -8,6 +8,8 @@ import Contact from './Components/contact';
 import NotFound from './Components/notFound';
 import Services from './Components/services';
 import Readings from './Components/readings';
+import PrivacyPolicy from './Components/privacy';
+import TermsAndConditions from './Components/terms';
 import { Switch, Route, useLocation, BrowserRouter as Router } from 'react-router-dom/cjs/react-router-dom';
 
 function App() { return <Router><AppContent /></Router> }
@@ -20,9 +22,11 @@ function AppContent() {
       <Switch>
         <Route exact path="/" render={() => <Home />} />
         <Route exact path="/about" render={() => <About />} />
+        <Route exact path="/contact" render={() => <Contact />} />
         <Route exact path="/services" render={() => <Services />} />
         <Route exact path="/readings" render={() => <Readings />} />
-        <Route exact path="/contact" render={() => <Contact />} />
+        <Route exact path="/privacy" render={() => <PrivacyPolicy />} />
+        <Route exact path="/terms" render={() => <TermsAndConditions />} />
         <Route render={() => <NotFound />} />
       </Switch>
       <Footer />
