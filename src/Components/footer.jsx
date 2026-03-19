@@ -110,7 +110,7 @@ export default function Footer() {
                         <Link to="/" style={{ textDecoration: 'none' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.2rem' }}>
                                 <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'linear-gradient(135deg, #7c3aed, #c084fc)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px', boxShadow: '0 0 14px rgba(139,92,246,0.4)' }}>✦</div>
-                                <span style={{ fontSize: '1.25rem', fontWeight: 700, background: 'linear-gradient(90deg, #e2d9f3, #c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: "'Cormorant Garamond', serif" }}>Nakshatra</span>
+                                <span style={{ fontSize: '1.25rem', fontWeight: 700, background: 'linear-gradient(90deg, #e2d9f3, #c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: "'Cormorant Garamond', serif" }}>Purple Celestia</span>
                             </div>
                         </Link>
                         <p style={{ color: 'rgba(200,185,230,0.6)', fontSize: '0.875rem', lineHeight: 1.75, maxWidth: '240px' }}>Ancient wisdom meets modern insight. Discover your cosmic path through astrology, numerology & Vastu.</p>
@@ -150,7 +150,7 @@ export default function Footer() {
                 </div>
                 <div style={{ height: '1px', marginBottom: '2rem', background: 'linear-gradient(90deg, transparent, rgba(139,92,246,0.25), transparent)' }} />
                 <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
-                    <p style={{ color: 'rgba(200,185,230,0.4)', fontSize: '0.8rem' }}>© {new Date().getFullYear()} Nakshatra. All rights reserved.</p>
+                    <p style={{ color: 'rgba(200,185,230,0.4)', fontSize: '0.8rem' }}>© {new Date().getFullYear()} Purple Celestia. All rights reserved.</p>
                     <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
                         {[
                             { label: 'Privacy Policy', path: '/privacy' },

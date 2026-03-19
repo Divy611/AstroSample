@@ -15,7 +15,7 @@ const SECTIONS = [
         content: [
             {
                 subtitle: 'Agreement to Terms',
-                body: 'By accessing or using the Nakshatra website and any of its services, you confirm that you are at least 18 years of age and agree to be bound by these Terms of Use. If you do not agree to any part of these terms, please discontinue use of our services immediately.',
+                body: 'By accessing or using the Purple Celestia website and any of its services, you confirm that you are at least 18 years of age and agree to be bound by these Terms of Use. If you do not agree to any part of these terms, please discontinue use of our services immediately.',
             },
             {
                 subtitle: 'Modifications',
@@ -31,7 +31,7 @@ const SECTIONS = [
         content: [
             {
                 subtitle: 'Entertainment & Guidance Only',
-                body: 'All astrology, numerology, Vastu, tarot, and related services provided by Nakshatra are intended for entertainment, personal reflection, and general guidance purposes only. They do not constitute professional advice of any kind — including but not limited to medical, legal, financial, or psychological advice.',
+                body: 'All astrology, numerology, Vastu, tarot, and related services provided by Purple Celestia are intended for entertainment, personal reflection, and general guidance purposes only. They do not constitute professional advice of any kind — including but not limited to medical, legal, financial, or psychological advice.',
             },
             {
                 subtitle: 'No Guarantees',
@@ -39,7 +39,7 @@ const SECTIONS = [
             },
             {
                 subtitle: 'Personal Responsibility',
-                body: 'You acknowledge that all decisions made based on information received through our services are made at your own discretion and risk. Nakshatra shall not be held liable for any decisions or actions taken as a result of a consultation.',
+                body: 'You acknowledge that all decisions made based on information received through our services are made at your own discretion and risk. Purple Celestia shall not be held liable for any decisions or actions taken as a result of a consultation.',
             },
         ],
     },
@@ -67,7 +67,7 @@ const SECTIONS = [
         content: [
             {
                 subtitle: 'Our Content',
-                body: 'All content on this website — including text, graphics, logos, icons, audio clips, and software — is the property of Nakshatra or its content suppliers and is protected by applicable copyright and intellectual property laws.',
+                body: 'All content on this website — including text, graphics, logos, icons, audio clips, and software — is the property of Purple Celestia or its content suppliers and is protected by applicable copyright and intellectual property laws.',
             },
             {
                 subtitle: 'Your Reports',
@@ -75,7 +75,7 @@ const SECTIONS = [
             },
             {
                 subtitle: 'Feedback',
-                body: 'Any feedback, suggestions, or ideas you share with us may be used by Nakshatra freely and without obligation or compensation to you.',
+                body: 'Any feedback, suggestions, or ideas you share with us may be used by Purple Celestia freely and without obligation or compensation to you.',
             },
         ],
     },
@@ -107,15 +107,15 @@ const SECTIONS = [
         content: [
             {
                 subtitle: 'Maximum Liability',
-                body: "To the fullest extent permitted by applicable law, Nakshatra's total liability to you for any claims arising from or related to these Terms or our services shall not exceed the amount you paid for the specific service giving rise to the claim.",
+                body: "To the fullest extent permitted by applicable law, Purple Celestia's total liability to you for any claims arising from or related to these Terms or our services shall not exceed the amount you paid for the specific service giving rise to the claim.",
             },
             {
                 subtitle: 'Exclusion of Damages',
-                body: 'Nakshatra shall not be liable for any indirect, incidental, special, consequential, or punitive damages — including loss of profits, loss of data, loss of goodwill, or emotional distress — arising from your use of or inability to use our services.',
+                body: 'Purple Celestia shall not be liable for any indirect, incidental, special, consequential, or punitive damages — including loss of profits, loss of data, loss of goodwill, or emotional distress — arising from your use of or inability to use our services.',
             },
             {
                 subtitle: 'Indemnification',
-                body: 'You agree to indemnify and hold harmless Nakshatra, its practitioners, employees, and affiliates from any claims, damages, losses, or expenses (including legal fees) arising from your violation of these Terms or your misuse of our services.',
+                body: 'You agree to indemnify and hold harmless Purple Celestia, its practitioners, employees, and affiliates from any claims, damages, losses, or expenses (including legal fees) arising from your violation of these Terms or your misuse of our services.',
             },
         ],
     },
@@ -127,11 +127,11 @@ const SECTIONS = [
         content: [
             {
                 subtitle: 'Jurisdiction',
-                body: 'These Terms of Use shall be governed by and construed in accordance with the laws of India. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts of Varanasi, Uttar Pradesh.',
+                body: 'These Terms of Use shall be governed by and construed in accordance with the laws of India. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts of Gurugram, Uttar Pradesh.',
             },
             {
                 subtitle: 'Dispute Resolution',
-                body: 'Before initiating any legal proceedings, you agree to first attempt to resolve any dispute informally by contacting us at legal@nakshatra.in. We will endeavour to resolve any complaint or dispute within 30 days of receipt.',
+                body: 'Before initiating any legal proceedings, you agree to first attempt to resolve any dispute informally by contacting us at legal@Purple Celestia.in. We will endeavour to resolve any complaint or dispute within 30 days of receipt.',
             },
         ],
     },
@@ -340,8 +340,8 @@ export default function TermsAndConditions() {
                         </div>
                         <div style={{ color: 'rgba(200,185,230,0.5)', fontSize: '0.85rem' }}>
                             Write to us at{' '}
-                            <a href="mailto:legal@nakshatra.in" style={{ color: '#c084fc', textDecoration: 'none' }}>
-                                legal@nakshatra.in
+                            <a href="mailto:legal@Purple Celestia.in" style={{ color: '#c084fc', textDecoration: 'none' }}>
+                                legal@Purple Celestia.in
                             </a>
                         </div>
                     </div>

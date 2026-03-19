@@ -122,7 +122,7 @@ export default function Home() {
             <section style={{ padding: '7rem 1.5rem', background: 'linear-gradient(180deg, transparent, rgba(124,58,237,0.06), transparent)' }}>
                 <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
                     <div className="reveal-up">
-                        <SectionLabel>Why Nakshatra</SectionLabel>
+                        <SectionLabel>Why Purple Celestia</SectionLabel>
                         <h2 style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", lineHeight: 1.2, marginBottom: '1.25rem', background: 'linear-gradient(135deg, #fff 40%, #c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Where Stars Meet Science
                         </h2>
                         <p style={{ color: 'rgba(200,185,230,0.65)', fontSize: '0.95rem', lineHeight: 1.85, marginBottom: '2rem' }}>Our practitioners hold decades of experience in traditional Vedic sciences, combining classical scholarship with empathetic modern guidance to deliver readings that are both accurate and transformative.</p>

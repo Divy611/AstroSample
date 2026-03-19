@@ -99,7 +99,7 @@ const SECTIONS = [
             },
             {
                 subtitle: 'Correction & Deletion',
-                body: 'You may request correction of inaccurate data or complete deletion of your personal information at any time by contacting us at privacy@nakshatra.in. We will process your request within 30 days.',
+                body: 'You may request correction of inaccurate data or complete deletion of your personal information at any time by contacting us at privacy@purplecelestia.in. We will process your request within 30 days.',
             },
             {
                 subtitle: 'Withdrawal of Consent',
@@ -315,8 +315,8 @@ export default function PrivacyPolicy() {
                         </div>
                         <div style={{ color: 'rgba(200,185,230,0.5)', fontSize: '0.85rem' }}>
                             Write to us at{' '}
-                            <a href="mailto:privacy@nakshatra.in" style={{ color: '#c084fc', textDecoration: 'none' }}>
-                                privacy@nakshatra.in
+                            <a href="mailto:privacy@purplecelestia.in" style={{ color: '#c084fc', textDecoration: 'none' }}>
+                                privacy@purplecelestia.in
                             </a>
                         </div>
                     </div>

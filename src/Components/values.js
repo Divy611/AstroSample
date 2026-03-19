@@ -166,7 +166,7 @@ export const READINGS = [
         id: 6,
         category: 'Muhurta',
         title: 'Why Monday Is Not Always Good for Starting a Business',
-        excerpt: 'Popular wisdom assigns the days of the week fixed auspicious qualities, but Muhurta science is far more nuanced. The Panchanga — a five-limbed Vedic almanac — evaluates Tithi, Vara, Nakshatra, Yoga, and Karana simultaneously.',
+        excerpt: 'Popular wisdom assigns the days of the week fixed auspicious qualities, but Muhurta science is far more nuanced. The Panchanga — a five-limbed Vedic almanac — evaluates Tithi, Vara, Purple Celestia, Yoga, and Karana simultaneously.',
         readTime: '6 min read',
         date: 'Feb 22, 2026',
         author: 'Rishika Anand',
@@ -264,7 +264,7 @@ export const TEAM = [
 ];
 
 export const MILESTONES = [
-    { year: '2012', title: 'Founded in Varanasi', desc: 'Nakshatra was established by a collective of Vedic scholars committed to making ancient wisdom accessible.' },
+    { year: '2012', title: 'Founded in Gurugram', desc: 'Purple Celestia was established by a collective of Vedic scholars committed to making ancient wisdom accessible.' },
     { year: '2015', title: 'First Digital Platform', desc: 'Launched online consultations, reaching clients across India, the UK, and North America within the first year.' },
     { year: '2018', title: '10,000 Readings Milestone', desc: 'Crossed ten thousand personalized readings — a testament to trust built through accuracy and compassion.' },
     { year: '2021', title: 'Global Expansion', desc: 'Opened dedicated service channels for Southeast Asia, the Middle East, and the United States.' },
@@ -283,7 +283,7 @@ export const CONTACT_METHODS = [
     {
         icon: '✉',
         label: 'Email Us',
-        value: 'hello@nakshatra.in',
+        value: 'hello@purplecelestia.in',
         sub: 'We respond within 24 hours',
         accentColor: '#c084fc',
         glowColor: 'rgba(192,132,252,0.3)',
@@ -331,7 +331,7 @@ export const SERVICES_OPTIONS = [
 export const CONSULTATION_TYPES = [
     { id: 'video', icon: '▶', label: 'Video Call', sub: 'Google Meet / Zoom' },
     { id: 'phone', icon: '☏', label: 'Phone Call', sub: 'Voice only' },
-    { id: 'inperson', icon: '◎', label: 'In Person', sub: 'Varanasi office' },
+    { id: 'inperson', icon: '◎', label: 'In Person', sub: 'Gurugram office' },
     { id: 'written', icon: '✉', label: 'Written Report', sub: 'Email delivery' },
 ];
 

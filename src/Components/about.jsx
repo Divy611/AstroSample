@@ -158,7 +158,7 @@ export default function About() {
                         <br />
                         <span style={{ background: 'linear-gradient(135deg, #c084fc, #e879f9, #f0abfc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Guided by the Stars</span>
                     </h1>
-                    <p ref={subtitleRef} style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', lineHeight: 1.85, color: 'rgba(200,185,230,0.65)', maxWidth: '580px', margin: '0 auto', fontWeight: 400 }}>Nakshatra was born from a shared belief — that the ancient sciences of India hold answers to the most modern of struggles. We exist to bridge that timeless wisdom with your everyday life.</p>
+                    <p ref={subtitleRef} style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', lineHeight: 1.85, color: 'rgba(200,185,230,0.65)', maxWidth: '580px', margin: '0 auto', fontWeight: 400 }}>Purple Celestia was born from a shared belief — that the ancient sciences of India hold answers to the most modern of struggles. We exist to bridge that timeless wisdom with your everyday life.</p>
                 </motion.div>
             </section>
             <section style={{ padding: '6rem 1.5rem' }}>
@@ -180,7 +180,7 @@ export default function About() {
                     <div className="reveal-up">
                         <SectionLabel>Our Mission</SectionLabel>
                         <h2 style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.6rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", lineHeight: 1.2, marginBottom: '1.25rem', background: 'linear-gradient(135deg, #fff 40%, #c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Illuminating Every Path, One Chart at a Time</h2>
-                        <p style={{ color: 'rgba(200,185,230,0.65)', fontSize: '0.95rem', lineHeight: 1.9, marginBottom: '1.2rem' }}>Nakshatra's mission is to make authentic Vedic guidance accessible — free from superstition, free from fear, and grounded in genuine scholarship. We believe every person deserves a clear, compassionate reading of their cosmic story.</p>
+                        <p style={{ color: 'rgba(200,185,230,0.65)', fontSize: '0.95rem', lineHeight: 1.9, marginBottom: '1.2rem' }}>Purple Celestia's mission is to make authentic Vedic guidance accessible — free from superstition, free from fear, and grounded in genuine scholarship. We believe every person deserves a clear, compassionate reading of their story.</p>
                         <p style={{ color: 'rgba(200,185,230,0.55)', fontSize: '0.9rem', lineHeight: 1.9 }}>We do not predict doom. We illuminate possibility. Every consultation is a collaboration between ancient celestial wisdom and your own agency as the author of your life.</p>
                     </div>
                 </div>

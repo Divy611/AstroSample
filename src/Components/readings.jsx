@@ -184,7 +184,7 @@ function ArticleModal({ reading, onClose }) {
                         }}>{reading.authorInitial}</div>
                         <div>
                             <div style={{ color: '#e2d9f3', fontWeight: 600, fontSize: '0.9rem' }}>{reading.author}</div>
-                            <div style={{ color: 'rgba(200,185,230,0.45)', fontSize: '0.75rem' }}>Nakshatra Practitioner · {reading.date}</div>
+                            <div style={{ color: 'rgba(200,185,230,0.45)', fontSize: '0.75rem' }}>Purple Celestia Practitioner · {reading.date}</div>
                         </div>
                     </div>
                     <div style={{ height: '1px', marginBottom: '2.5rem', background: 'linear-gradient(90deg, transparent, rgba(139,92,246,0.3), transparent)' }} />
@@ -347,7 +347,7 @@ export default function Readings() {
                         color: '#c084fc', fontSize: '0.78rem', fontWeight: 600,
                         letterSpacing: '0.14em', textTransform: 'uppercase',
                         marginBottom: '1.75rem',
-                    }}>✦ The Nakshatra Compendium
+                    }}>✦ The Purple Celestia Compendium
                     </motion.div>
                     <h1 ref={titleRef} style={{
                         fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', fontWeight: 800,
