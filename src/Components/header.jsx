@@ -21,7 +21,6 @@ function useWindowWidth() {
         window.addEventListener('resize', handler, { passive: true });
         return () => window.removeEventListener('resize', handler);
     }, []);
-
     return width;
 }
 
@@ -74,18 +73,18 @@ export default function Header() {
     return (
         <header ref={headerRef} style={{
             position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
-            transition: 'background 0.4s ease, box-shadow 0.4s ease',
-            background: scrolled ? 'rgba(5,2,18,0.85)' : 'transparent',
-            backdropFilter: scrolled ? 'blur(18px)' : 'none',
-            WebkitBackdropFilter: scrolled ? 'blur(18px)' : 'none',
-            boxShadow: scrolled ? '0 2px 30px rgba(139,92,246,0.12)' : 'none',
-            borderBottom: scrolled ? '1px solid rgba(139,92,246,0.15)' : '1px solid transparent',
+            transition: 'background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease',
+            background: scrolled ? 'rgba(253,250,255,0.88)' : 'transparent',
+            backdropFilter: scrolled ? 'blur(20px)' : 'none',
+            WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
+            boxShadow: scrolled ? '0 2px 24px rgba(124,92,191,0.08)' : 'none',
+            borderBottom: scrolled ? '1px solid rgba(167,139,250,0.2)' : '1px solid transparent',
         }}>
             <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
                 <Link to="/" style={{ textDecoration: 'none' }}>
                     <div ref={logoRef} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', cursor: 'pointer' }}>
-                        <div style={{ width: '38px', height: '38px', borderRadius: '50%', background: 'linear-gradient(135deg, #7c3aed, #c084fc)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 18px rgba(139,92,246,0.5)', fontSize: '18px' }}>✦</div>
-                        <span style={{ fontSize: '1.35rem', fontWeight: 700, letterSpacing: '0.04em', background: 'linear-gradient(90deg, #e2d9f3, #c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: "'Cormorant Garamond', serif" }}>Purple Celestia</span>
+                        <div style={{ width: '38px', height: '38px', borderRadius: '50%', background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 14px rgba(124,92,191,0.25)', fontSize: '18px', color: '#fff' }}>✦</div>
+                        <span style={{ fontSize: '1.35rem', fontWeight: 700, letterSpacing: '0.04em', background: 'linear-gradient(90deg, #3d2b6b, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: "'Cormorant Garamond', serif" }}>Purple Celestia</span>
                     </div>
                 </Link>
                 {isDesktop && (
@@ -94,10 +93,10 @@ export default function Header() {
                             const isActive = location.pathname === link.path;
                             return (
                                 <Link key={link.path} to={link.path} style={{ textDecoration: 'none' }}>
-                                    <motion.div whileHover={{ color: '#c084fc' }} style={{
+                                    <motion.div whileHover={{ color: '#7c5cbf' }} style={{
                                         padding: '0.4rem 1rem', borderRadius: '6px',
-                                        fontSize: '0.875rem', fontWeight: 500, letterSpacing: '0.06em',
-                                        color: isActive ? '#c084fc' : 'rgba(226,217,243,0.75)',
+                                        fontSize: '0.875rem', fontWeight: 500, letterSpacing: '0.04em',
+                                        color: isActive ? '#7c5cbf' : '#6b5c8a',
                                         cursor: 'pointer', position: 'relative',
                                         transition: 'color 0.2s ease',
                                     }}>
@@ -107,7 +106,7 @@ export default function Header() {
                                                 position: 'absolute', bottom: '-2px', left: '50%',
                                                 transform: 'translateX(-50%)',
                                                 width: '20px', height: '2px',
-                                                background: 'linear-gradient(90deg, #7c3aed, #c084fc)',
+                                                background: 'linear-gradient(90deg, #7c5cbf, #a78bfa)',
                                                 borderRadius: '2px',
                                             }} />
                                         )}
@@ -118,13 +117,14 @@ export default function Header() {
                     </nav>
                 )}
                 {isDesktop
-                    ? <motion.button whileHover={{ scale: 1.04, boxShadow: '0 0 28px rgba(139,92,246,0.6)' }} whileTap={{ scale: 0.97 }} style={{
+                    ? <motion.button whileHover={{ scale: 1.04, boxShadow: '0 8px 28px rgba(124,92,191,0.35)' }} whileTap={{ scale: 0.97 }} style={{
                         padding: '0.5rem 1.4rem',
-                        background: 'linear-gradient(135deg, #7c3aed, #9f5cf5)',
+                        background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)',
                         border: 'none', borderRadius: '30px',
                         color: '#fff', fontSize: '0.85rem', fontWeight: 600,
                         letterSpacing: '0.05em', cursor: 'pointer',
-                        boxShadow: '0 0 18px rgba(124,58,237,0.35)',
+                        boxShadow: '0 4px 16px rgba(124,92,191,0.22)',
+                        transition: 'box-shadow 0.2s',
                     }}>Book a Reading
                     </motion.button>
                     : <button onClick={() => setMenuOpen((p) => !p)} aria-label="Toggle menu" aria-expanded={menuOpen} style={{
@@ -139,7 +139,8 @@ export default function Header() {
                                 : { rotate: 0, y: 0, opacity: 1, scaleX: 1 }
                             } style={{
                                 display: 'block', width: '22px', height: '2px',
-                                background: '#c084fc', borderRadius: '2px', transformOrigin: 'center',
+                                background: '#7c5cbf',
+                                borderRadius: '2px', transformOrigin: 'center',
                             }} />
                         ))}
                     </button>
@@ -149,29 +150,30 @@ export default function Header() {
                 {menuOpen && !isDesktop && (
                     <motion.div key="mobile-menu" variants={mobileMenuVariants} initial="hidden" animate="visible" exit="exit" style={{
                         position: 'absolute', top: '72px', left: 0, right: 0,
-                        background: 'rgba(5,2,18,0.97)',
+                        background: 'rgba(253,250,255,0.97)',
                         backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)',
-                        borderBottom: '1px solid rgba(139,92,246,0.2)',
+                        borderBottom: '1px solid rgba(167,139,250,0.2)',
                         padding: '1rem 1.5rem 1.5rem',
+                        boxShadow: '0 8px 32px rgba(124,92,191,0.08)',
                     }}>
                         {NAV_LINKS.map((link) => (
                             <Link key={link.path} to={link.path} style={{ textDecoration: 'none' }}>
                                 <motion.div variants={mobileItemVariants} style={{
                                     padding: '0.85rem 0.5rem',
-                                    borderBottom: '1px solid rgba(139,92,246,0.1)',
-                                    color: location.pathname === link.path ? '#c084fc' : 'rgba(226,217,243,0.8)',
-                                    fontSize: '1rem', fontWeight: 500, letterSpacing: '0.05em',
-                                }}
-                                >{link.label}
+                                    borderBottom: '1px solid rgba(167,139,250,0.12)',
+                                    color: location.pathname === link.path ? '#7c5cbf' : '#6b5c8a',
+                                    fontSize: '1rem', fontWeight: 500, letterSpacing: '0.04em',
+                                }}>{link.label}
                                 </motion.div>
                             </Link>
                         ))}
                         <motion.button variants={mobileItemVariants} whileTap={{ scale: 0.97 }} style={{
                             marginTop: '1rem', width: '100%', padding: '0.75rem',
-                            background: 'linear-gradient(135deg, #7c3aed, #9f5cf5)',
+                            background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)',
                             border: 'none', borderRadius: '10px',
                             color: '#fff', fontSize: '0.95rem', fontWeight: 600,
                             cursor: 'pointer', letterSpacing: '0.05em',
+                            boxShadow: '0 4px 16px rgba(124,92,191,0.2)',
                         }}
                         >Book a Reading
                         </motion.button>
