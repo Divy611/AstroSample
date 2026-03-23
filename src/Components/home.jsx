@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { StarField, SectionLabel, ServiceCard } from './widgets';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { SERVICES, STATS, TESTIMONIALS, testimonialVariants } from './values';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -10,13 +11,19 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Home() {
     const ctaRef = useRef(null);
     const orbRef = useRef(null);
+    const history = useHistory();
     const heroRef = useRef(null);
     const titleRef = useRef(null);
     const statsRef = useRef(null);
     const { scrollY } = useScroll();
     const subtitleRef = useRef(null);
+    const servicesRef = useRef(null);
     const orbY = useTransform(scrollY, [0, 600], [0, -100]);
     const heroOpacity = useTransform(scrollY, [0, 400], [1, 0]);
+
+    const scrollToServices = () => {
+        servicesRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -82,7 +89,7 @@ export default function Home() {
                     </h1>
                     <p ref={subtitleRef} style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)', lineHeight: 1.8, color: '#6b5c8a', maxWidth: '580px', margin: '0 auto 2.5rem', fontWeight: 400 }}>Unlock the profound wisdom of Vedic Astrology, Numerology & Vastu Shastra — crafted by master practitioners for your unique journey.</p>
                     <div ref={ctaRef} style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <motion.button whileHover={{ scale: 1.04, boxShadow: '0 8px 30px rgba(124,92,191,0.35)' }} whileTap={{ scale: 0.97 }} style={{
+                        <motion.button onClick={scrollToServices} whileHover={{ scale: 1.04, boxShadow: '0 8px 30px rgba(124,92,191,0.35)' }} whileTap={{ scale: 0.97 }} style={{
                             padding: '0.85rem 2.2rem',
                             background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)',
                             border: 'none',
@@ -96,7 +103,7 @@ export default function Home() {
                         }}
                         >Begin Your Journey ✦
                         </motion.button>
-                        <motion.button whileHover={{ scale: 1.04, background: 'rgba(167,139,250,0.1)' }} whileTap={{ scale: 0.97 }} style={{
+                        <motion.button onClick={() => { history.push('/services'); }} whileHover={{ scale: 1.04, background: 'rgba(167,139,250,0.1)' }} whileTap={{ scale: 0.97 }} style={{
                             padding: '0.85rem 2.2rem',
                             background: 'rgba(255,255,255,0.7)',
                             border: '1.5px solid rgba(167,139,250,0.4)',
@@ -140,7 +147,7 @@ export default function Home() {
                     ))}
                 </div>
             </section>
-            <section style={{ padding: '7rem 1.5rem', maxWidth: '1280px', margin: '0 auto' }}>
+            <section ref={servicesRef} style={{ padding: '7rem 1.5rem', maxWidth: '1280px', margin: '0 auto' }}>
                 <div className="reveal-up" style={{ textAlign: 'center', marginBottom: '4rem' }}>
                     <SectionLabel>Our Services</SectionLabel>
                     <h2 style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", background: 'linear-gradient(135deg, #3d2b6b, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '1rem' }}>Sacred Sciences, Modern Guidance</h2>
