@@ -532,3 +532,262 @@ export const PROCESS_STEPS = [
     { num: '03', title: 'Your Consultation', desc: 'Meet your practitioner via video call or in-person. Receive your reading with complete confidentiality.' },
     { num: '04', title: 'Receive Your Report', desc: 'Get a written summary of key insights and remedies within 24 hours of your session.' },
 ];
+
+export const SECTIONS = [
+    {
+        id: 'collect',
+        icon: '◈',
+        title: 'Information We Collect',
+        accentColor: '#c084fc',
+        content: [
+            {
+                subtitle: 'Personal Information',
+                body: 'When you book a consultation or contact us, we collect your full name, email address, phone number, and birth details (date, time, and place of birth) where relevant to the service requested.',
+            },
+            {
+                subtitle: 'Usage Data',
+                body: 'We automatically collect certain information when you visit our website, including your IP address, browser type, pages visited, time spent on pages, and referring URLs. This data is collected via cookies and similar tracking technologies.',
+            },
+            {
+                subtitle: 'Communication Records',
+                body: 'We retain records of your correspondence with us — including emails, WhatsApp messages, and form submissions — to maintain continuity of service and for quality assurance purposes.',
+            },
+        ],
+    },
+    {
+        id: 'use',
+        icon: '✦',
+        title: 'How We Use Your Information',
+        accentColor: '#67e8f9',
+        content: [
+            {
+                subtitle: 'Service Delivery',
+                body: 'Your personal and birth data is used exclusively to prepare and deliver the consultation or written report you have requested. This information is accessed only by the assigned practitioner.',
+            },
+            {
+                subtitle: 'Communication',
+                body: 'We use your contact details to confirm bookings, send appointment reminders, deliver written reports, and respond to your enquiries. We do not send unsolicited marketing communications without your explicit consent.',
+            },
+            {
+                subtitle: 'Website Improvement',
+                body: 'Aggregated, anonymised usage data helps us understand how visitors interact with our site, enabling us to improve performance, content, and user experience.',
+            },
+        ],
+    },
+    {
+        id: 'share',
+        icon: '☽',
+        title: 'Information Sharing & Disclosure',
+        accentColor: '#f472b6',
+        content: [
+            {
+                subtitle: 'No Third-Party Sale',
+                body: 'We never sell, rent, or trade your personal information to any third party for commercial purposes. Your data is not a product.',
+            },
+            {
+                subtitle: 'Service Providers',
+                body: 'We may share limited data with trusted service providers (such as payment processors and email delivery services) strictly to facilitate our services. These providers are contractually obligated to protect your data and may not use it for any other purpose.',
+            },
+            {
+                subtitle: 'Legal Obligations',
+                body: 'We may disclose your information if required to do so by law, court order, or governmental authority, or if we believe in good faith that such disclosure is necessary to protect our rights or the safety of others.',
+            },
+        ],
+    },
+    {
+        id: 'security',
+        icon: '♄',
+        title: 'Data Security',
+        accentColor: '#34d399',
+        content: [
+            {
+                subtitle: 'Encryption & Storage',
+                body: 'All personal data transmitted to our servers is encrypted using TLS (Transport Layer Security). Stored data is protected by industry-standard encryption protocols and access controls.',
+            },
+            {
+                subtitle: 'Access Controls',
+                body: 'Access to your personal data is restricted to practitioners and staff members who require it to deliver your requested service. All staff are bound by confidentiality agreements.',
+            },
+            {
+                subtitle: 'Breach Notification',
+                body: 'In the unlikely event of a data breach that affects your personal information, we will notify you within 72 hours of becoming aware of the incident, in accordance with applicable data protection law.',
+            },
+        ],
+    },
+    {
+        id: 'rights',
+        icon: '♀',
+        title: 'Your Rights',
+        accentColor: '#fbbf24',
+        content: [
+            {
+                subtitle: 'Access & Portability',
+                body: 'You have the right to request a copy of all personal data we hold about you, in a structured, machine-readable format.',
+            },
+            {
+                subtitle: 'Correction & Deletion',
+                body: 'You may request correction of inaccurate data or complete deletion of your personal information at any time by contacting us at privacy@purplecelestia.in. We will process your request within 30 days.',
+            },
+            {
+                subtitle: 'Withdrawal of Consent',
+                body: 'Where processing is based on your consent, you may withdraw that consent at any time without affecting the lawfulness of processing carried out prior to withdrawal.',
+            },
+        ],
+    },
+    {
+        id: 'cookies',
+        icon: '☿',
+        title: 'Cookies',
+        accentColor: '#c084fc',
+        content: [
+            {
+                subtitle: 'What We Use',
+                body: 'We use essential cookies (required for the site to function), analytical cookies (to understand usage patterns), and preference cookies (to remember your settings). We do not use advertising or tracking cookies.',
+            },
+            {
+                subtitle: 'Your Control',
+                body: 'You may disable cookies through your browser settings at any time. Note that disabling essential cookies may affect the functionality of certain features on our site.',
+            },
+        ],
+    },
+];
+
+export const TERMS_SECTIONS = [
+    {
+        id: 'acceptance',
+        icon: '✦',
+        title: 'Acceptance of Terms',
+        accentColor: '#c084fc',
+        content: [
+            {
+                subtitle: 'Agreement to Terms',
+                body: 'By accessing or using the Purple Celestia website and any of its services, you confirm that you are at least 18 years of age and agree to be bound by these Terms of Use. If you do not agree to any part of these terms, please discontinue use of our services immediately.',
+            },
+            {
+                subtitle: 'Modifications',
+                body: 'We reserve the right to update these Terms of Use at any time. Changes will be posted on this page with an updated revision date. Your continued use of our services after any changes constitutes your acceptance of the new terms.',
+            },
+        ],
+    },
+    {
+        id: 'services',
+        icon: '♈',
+        title: 'Nature of Our Services',
+        accentColor: '#f472b6',
+        content: [
+            {
+                subtitle: 'Entertainment & Guidance Only',
+                body: 'All astrology, numerology, Vastu, tarot, and related services provided by Purple Celestia are intended for entertainment, personal reflection, and general guidance purposes only. They do not constitute professional advice of any kind — including but not limited to medical, legal, financial, or psychological advice.',
+            },
+            {
+                subtitle: 'No Guarantees',
+                body: 'We make no warranties, expressed or implied, that any reading, prediction, or recommendation will prove accurate, complete, or applicable to your specific circumstances. Outcomes cannot be guaranteed, and results will vary between individuals.',
+            },
+            {
+                subtitle: 'Personal Responsibility',
+                body: 'You acknowledge that all decisions made based on information received through our services are made at your own discretion and risk. Purple Celestia shall not be held liable for any decisions or actions taken as a result of a consultation.',
+            },
+        ],
+    },
+    {
+        id: 'conduct',
+        icon: '☽',
+        title: 'User Conduct',
+        accentColor: '#34d399',
+        content: [
+            {
+                subtitle: 'Prohibited Activities',
+                body: 'You agree not to use our services to harass, abuse, or harm others; to impersonate any person or entity; to transmit false or misleading information; to attempt to gain unauthorised access to our systems; or to use our content for commercial purposes without our written consent.',
+            },
+            {
+                subtitle: 'Accurate Information',
+                body: 'You agree to provide accurate, current, and complete information when booking consultations or submitting forms. Inaccurate birth data or personal information may significantly affect the quality of your reading, and no refund will be issued on this basis.',
+            },
+        ],
+    },
+    {
+        id: 'ip',
+        icon: '◈',
+        title: 'Intellectual Property',
+        accentColor: '#fbbf24',
+        content: [
+            {
+                subtitle: 'Our Content',
+                body: 'All content on this website — including text, graphics, logos, icons, audio clips, and software — is the property of Purple Celestia or its content suppliers and is protected by applicable copyright and intellectual property laws.',
+            },
+            {
+                subtitle: 'Your Reports',
+                body: 'Written reports and readings prepared specifically for you are for your personal, non-commercial use only. You may not reproduce, distribute, republish, or create derivative works from any consultation content without our prior written consent.',
+            },
+            {
+                subtitle: 'Feedback',
+                body: 'Any feedback, suggestions, or ideas you share with us may be used by Purple Celestia freely and without obligation or compensation to you.',
+            },
+        ],
+    },
+    {
+        id: 'payments',
+        icon: '♀',
+        title: 'Payments & Refunds',
+        accentColor: '#67e8f9',
+        content: [
+            {
+                subtitle: 'Payment Terms',
+                body: 'All consultation fees are payable in advance of the session unless otherwise agreed. Prices are listed in Indian Rupees (INR) and are subject to change without prior notice. Payment confirms your acceptance of these terms.',
+            },
+            {
+                subtitle: 'Cancellations',
+                body: 'Cancellations made more than 24 hours before a scheduled session are eligible for a full refund or rescheduling at no additional cost. Cancellations within 24 hours of the session may incur a 50% cancellation fee.',
+            },
+            {
+                subtitle: 'No-Shows',
+                body: 'If you fail to attend a scheduled session without prior notice, the full session fee will be forfeited. We will attempt to contact you once to reschedule; a second no-show will result in termination of booking privileges.',
+            },
+        ],
+    },
+    {
+        id: 'liability',
+        icon: '♄',
+        title: 'Limitation of Liability',
+        accentColor: '#f87171',
+        content: [
+            {
+                subtitle: 'Maximum Liability',
+                body: "To the fullest extent permitted by applicable law, Purple Celestia's total liability to you for any claims arising from or related to these Terms or our services shall not exceed the amount you paid for the specific service giving rise to the claim.",
+            },
+            {
+                subtitle: 'Exclusion of Damages',
+                body: 'Purple Celestia shall not be liable for any indirect, incidental, special, consequential, or punitive damages — including loss of profits, loss of data, loss of goodwill, or emotional distress — arising from your use of or inability to use our services.',
+            },
+            {
+                subtitle: 'Indemnification',
+                body: 'You agree to indemnify and hold harmless Purple Celestia, its practitioners, employees, and affiliates from any claims, damages, losses, or expenses (including legal fees) arising from your violation of these Terms or your misuse of our services.',
+            },
+        ],
+    },
+    {
+        id: 'governing',
+        icon: '☿',
+        title: 'Governing Law',
+        accentColor: '#c084fc',
+        content: [
+            {
+                subtitle: 'Jurisdiction',
+                body: 'These Terms of Use shall be governed by and construed in accordance with the laws of India. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts of Gurugram, Uttar Pradesh.',
+            },
+            {
+                subtitle: 'Dispute Resolution',
+                body: 'Before initiating any legal proceedings, you agree to first attempt to resolve any dispute informally by contacting us at legal@Purple Celestia.in. We will endeavour to resolve any complaint or dispute within 30 days of receipt.',
+            },
+        ],
+    },
+];
+
+export const PASTEL_COLORS = [
+    'rgba(167,139,250,0.45)',
+    'rgba(251,207,232,0.55)',
+    'rgba(186,230,253,0.5)',
+    'rgba(196,181,253,0.5)',
+    'rgba(254,215,170,0.45)',
+    'rgba(167,243,208,0.4)',
+];

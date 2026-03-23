@@ -24,10 +24,10 @@ const FOOTER_LINKS = {
 };
 
 const SOCIAL_ICONS = [
-    { label: 'Instagram', icon: '📸', href: 'https://instagram.com' },
-    { label: 'YouTube', icon: '▶️', href: 'https://youtube.com' },
-    { label: 'Twitter', icon: '𝕏', href: 'https://x.com' },
-    { label: 'Facebook', icon: '𝑓', href: 'https://facebook.com' },
+    { label: 'Instagram', icon: <i class="bi bi-instagram text-lg"></i>, href: 'https://www.instagram.com/thepurplelady_666/' },
+    { label: 'YouTube', icon: <i class="bi bi-youtube text-lg"></i>, href: 'https://youtube.com' },
+    { label: 'Twitter', icon: <i class="bi bi-twitter-x text-lg"></i>, href: 'https://x.com' },
+    { label: 'Facebook', icon: <i class="bi bi-facebook text-lg"></i>, href: 'https://facebook.com' },
 ];
 
 function getMoonPhase() {
@@ -61,21 +61,21 @@ function CosmicWidget() {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.1rem' }}>
-                <h4 style={{ color: '#c084fc', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', margin: 0 }}>Current Sky</h4>
+                <h4 style={{ color: '#7c5cbf', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', margin: 0 }}>Current Sky</h4>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                    <motion.div animate={{ opacity: [1, 0.2, 1] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }} style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#34d399', boxShadow: '0 0 8px rgba(52,211,153,0.8)' }} />
-                    <span style={{ color: 'rgba(200,185,230,0.4)', fontSize: '0.68rem', letterSpacing: '0.06em' }}>LIVE</span>
+                    <motion.div animate={{ opacity: [1, 0.2, 1] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }} style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 6px rgba(16,185,129,0.6)' }} />
+                    <span style={{ color: '#9585b0', fontSize: '0.68rem', letterSpacing: '0.06em' }}>LIVE</span>
                 </div>
             </div>
-            <div style={{ padding: '0.65rem 0.85rem', borderRadius: '10px', background: 'rgba(124,58,237,0.08)', border: '1px solid rgba(139,92,246,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <span style={{ color: 'rgba(200,185,230,0.55)', fontSize: '0.75rem' }}>{dateStr}</span>
-                <span style={{ color: '#c084fc', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.05em' }}>{timeStr}</span>
+            <div style={{ padding: '0.65rem 0.85rem', borderRadius: '10px', background: 'rgba(167,139,250,0.07)', border: '1px solid rgba(167,139,250,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <span style={{ color: '#9585b0', fontSize: '0.75rem' }}>{dateStr}</span>
+                <span style={{ color: '#7c5cbf', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.05em' }}>{timeStr}</span>
             </div>
-            <div style={{ padding: '0.65rem 0.85rem', borderRadius: '10px', background: 'rgba(124,58,237,0.06)', border: '1px solid rgba(139,92,246,0.12)', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+            <div style={{ padding: '0.65rem 0.85rem', borderRadius: '10px', background: 'rgba(167,139,250,0.05)', border: '1px solid rgba(167,139,250,0.14)', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                 <span style={{ fontSize: '1rem' }}>{moonPhase.icon}</span>
                 <div>
-                    <div style={{ color: 'rgba(200,185,230,0.4)', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Moon Phase</div>
-                    <div style={{ color: '#e2d9f3', fontSize: '0.8rem', fontWeight: 600, marginTop: '0.1rem' }}>{moonPhase.label}</div>
+                    <div style={{ color: '#9585b0', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Moon Phase</div>
+                    <div style={{ color: '#2d2438', fontSize: '0.8rem', fontWeight: 600, marginTop: '0.1rem' }}>{moonPhase.label}</div>
                 </div>
             </div>
         </div >
@@ -102,26 +102,26 @@ export default function Footer() {
     }, []);
 
     return (
-        <footer ref={footerRef} style={{ background: 'linear-gradient(180deg, #050212 0%, #0a0520 100%)', borderTop: '1px solid rgba(139,92,246,0.18)', padding: '5rem 1.5rem 2rem', position: 'relative', overflow: 'hidden' }}>
-            <div style={{ position: 'absolute', bottom: '-100px', left: '50%', transform: 'translateX(-50%)', width: '600px', height: '300px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(124,58,237,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <footer ref={footerRef} style={{ background: 'linear-gradient(180deg, #faf9f7 0%, #f5f0ff 100%)', borderTop: '1px solid rgba(167,139,250,0.18)', padding: '5rem 1.5rem 2rem', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ position: 'absolute', bottom: '-80px', left: '50%', transform: 'translateX(-50%)', width: '600px', height: '260px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(196,181,253,0.18) 0%, transparent 70%)', pointerEvents: 'none' }} />
             <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem', marginBottom: '4rem' }}>
                     <div className="footer-col">
                         <Link to="/" style={{ textDecoration: 'none' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.2rem' }}>
-                                <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'linear-gradient(135deg, #7c3aed, #c084fc)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px', boxShadow: '0 0 14px rgba(139,92,246,0.4)' }}>✦</div>
-                                <span style={{ fontSize: '1.25rem', fontWeight: 700, background: 'linear-gradient(90deg, #e2d9f3, #c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: "'Cormorant Garamond', serif" }}>Purple Celestia</span>
+                                <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px', color: '#fff', boxShadow: '0 4px 14px rgba(124,92,191,0.22)' }}>✦</div>
+                                <span style={{ fontSize: '1.25rem', fontWeight: 700, background: 'linear-gradient(90deg, #3d2b6b, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: "'Cormorant Garamond', serif" }}>Purple Celestia</span>
                             </div>
                         </Link>
-                        <p style={{ color: 'rgba(200,185,230,0.6)', fontSize: '0.875rem', lineHeight: 1.75, maxWidth: '240px' }}>Ancient wisdom meets modern insight. Discover your cosmic path through astrology, numerology & Vastu.</p>
+                        <p style={{ color: '#6b5c8a', fontSize: '0.875rem', lineHeight: 1.75, maxWidth: '240px' }}>Ancient wisdom meets modern insight. Discover your cosmic path through astrology, numerology &amp; Vastu.</p>
                         <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1.5rem' }}>
                             {SOCIAL_ICONS.map(({ label, icon, href }) => (
-                                <motion.a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} whileHover={{ scale: 1.15, boxShadow: '0 0 16px rgba(139,92,246,0.5)' }} style={{
+                                <motion.a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} whileHover={{ scale: 1.15, boxShadow: '0 4px 18px rgba(124,92,191,0.25)' }} style={{
                                     width: '38px', height: '38px', borderRadius: '50%',
-                                    border: '1px solid rgba(139,92,246,0.3)',
-                                    background: 'rgba(139,92,246,0.08)',
+                                    border: '1.5px solid rgba(167,139,250,0.28)',
+                                    background: 'rgba(167,139,250,0.07)',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    fontSize: '0.9rem', textDecoration: 'none', color: '#c084fc',
+                                    fontSize: '0.9rem', textDecoration: 'none', color: '#7c5cbf',
                                     transition: 'border-color 0.2s',
                                 }}>{icon}</motion.a>
                             ))}
@@ -129,17 +129,16 @@ export default function Footer() {
                     </div>
                     {Object.entries(FOOTER_LINKS).map(([category, links]) => (
                         <div key={category} className="footer-col">
-                            <h4 style={{ color: '#c084fc', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>{category}</h4>
+                            <h4 style={{ color: '#7c5cbf', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1.25rem', margin: '0 0 1.25rem' }}>{category}</h4>
                             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.7rem' }}>
                                 {links.map(({ label, path }) => (
                                     <li key={label}>
                                         <Link to={path} style={{ textDecoration: 'none' }}>
-                                            <motion.span whileHover={{ x: 4, color: '#c084fc' }} style={{
-                                                color: 'rgba(200,185,230,0.6)', fontSize: '0.875rem',
+                                            <motion.span whileHover={{ x: 4, color: '#7c5cbf' }} style={{
+                                                color: '#9585b0', fontSize: '0.875rem',
                                                 display: 'inline-block',
                                                 cursor: 'pointer', transition: 'color 0.2s',
-                                            }}
-                                            >{label}</motion.span>
+                                            }}>{label}</motion.span>
                                         </Link>
                                     </li>
                                 ))}
@@ -148,9 +147,9 @@ export default function Footer() {
                     ))}
                     <div className="footer-col"><CosmicWidget /></div>
                 </div>
-                <div style={{ height: '1px', marginBottom: '2rem', background: 'linear-gradient(90deg, transparent, rgba(139,92,246,0.25), transparent)' }} />
+                <div style={{ height: '1px', marginBottom: '2rem', background: 'linear-gradient(90deg, transparent, rgba(167,139,250,0.3), transparent)' }} />
                 <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
-                    <p style={{ color: 'rgba(200,185,230,0.4)', fontSize: '0.8rem' }}>© {new Date().getFullYear()} Purple Celestia. All rights reserved.</p>
+                    <p style={{ color: '#9585b0', fontSize: '0.8rem', margin: 0 }}>© {new Date().getFullYear()} Purple Celestia. All rights reserved.</p>
                     <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
                         {[
                             { label: 'Privacy Policy', path: '/privacy' },
@@ -159,13 +158,13 @@ export default function Footer() {
                         ].map(({ label, path }) => (
                             <Link key={label} to={path} style={{ textDecoration: 'none' }}>
                                 <motion.span whileHover={{ color: '#c084fc' }} style={{
-                                    color: 'rgba(200,185,230,0.3)', fontSize: '0.78rem',
+                                    color: '#7c5cbf', fontSize: '0.78rem',
                                     cursor: 'pointer', transition: 'color 0.2s',
                                 }}>{label}</motion.span>
                             </Link>
                         ))}
                     </div>
-                    <p style={{ color: 'rgba(200,185,230,0.3)', fontSize: '0.8rem', letterSpacing: '0.04em' }}>✦</p>
+                    <p style={{ color: 'rgba(124,92,191,0.4)', fontSize: '0.8rem', letterSpacing: '0.04em', margin: 0 }}>✦</p>
                 </div>
             </div>
         </footer>

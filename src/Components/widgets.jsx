@@ -1,4 +1,5 @@
 import gsap from "gsap";
+import { PASTEL_COLORS } from "./values";
 import { useRef, useEffect, useState } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -21,8 +22,8 @@ function ShootingStar({ id, onDone }) {
             width: `${trailLength}px`,
             height: `${thickness}px`,
             borderRadius: '999px',
-            background: 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(192,132,252,0.6) 40%, rgba(255,255,255,1) 100%)',
-            boxShadow: '0 0 6px 1px rgba(255,255,255,0.6), 0 0 12px 2px rgba(192,132,252,0.3)',
+            background: 'linear-gradient(90deg, rgba(196,181,253,0) 0%, rgba(167,139,250,0.5) 40%, rgba(251,207,232,0.9) 100%)',
+            boxShadow: '0 0 6px 1px rgba(196,181,253,0.4), 0 0 12px 2px rgba(167,139,250,0.2)',
             rotate: `${angleDeg}deg`,
             transformOrigin: 'right center',
             pointerEvents: 'none',
@@ -41,9 +42,10 @@ export function StarField() {
             id: i,
             top: `${Math.random() * 100}%`,
             left: `${Math.random() * 100}%`,
-            size: Math.random() * 2 + 1,
-            delay: Math.random() * 4,
+            size: Math.random() * 1.8 + 0.4,
+            delay: Math.random() * 5,
             duration: Math.random() * 3 + 2,
+            color: PASTEL_COLORS[i % PASTEL_COLORS.length],
         }))
     ).current;
 
@@ -69,7 +71,7 @@ export function StarField() {
 
     return (
         <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 0 }}>
-            {stars.map((s) => <motion.div key={s.id} animate={{ opacity: [0.1, 0.8, 0.1] }} transition={{ duration: s.duration, delay: s.delay, repeat: Infinity, ease: 'easeInOut' }} style={{ position: 'absolute', top: s.top, left: s.left, width: `${s.size}px`, height: `${s.size}px`, borderRadius: '50%', background: '#fff' }} />)}
+            {stars.map((s) => <motion.div key={s.id} animate={{ opacity: [0.05, 0.6, 0.05] }} transition={{ duration: s.duration, delay: s.delay, repeat: Infinity, ease: 'easeInOut' }} style={{ position: 'absolute', top: s.top, left: s.left, width: `${s.size}px`, height: `${s.size}px`, borderRadius: '50%', background: s.color }} />)}
             <AnimatePresence>{shootingStars.map((id) => <ShootingStar key={id} id={id} onDone={() => removeStar(id)} />)}</AnimatePresence>
         </div>
     );
@@ -77,22 +79,12 @@ export function StarField() {
 
 export function SectionLabel({ children }) {
     return (
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.35rem 1rem', borderRadius: '30px', border: '1px solid rgba(192, 132, 252, 0.3)', background: 'rgba(124, 58, 237, 0.1)', color: '#c084fc', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1rem' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.35rem 1rem', borderRadius: '30px', border: '1px solid rgba(167,139,250,0.3)', background: 'rgba(167,139,250,0.08)', color: '#7c5cbf', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1rem' }}>
             <span>✦</span> {children}
         </div>
     );
 }
 
-const cardVariants = {
-    rest: {
-        y: 0,
-        borderColor: 'rgba(139, 92, 246, 0.2)',
-    },
-    hover: {
-        y: -8,
-        borderColor: 'rgba(192, 132, 252, 0.45)',
-    },
-};
 
 export function ServiceCard({ service, index }) {
     const cardRef = useRef(null);
@@ -115,22 +107,21 @@ export function ServiceCard({ service, index }) {
     }, [index]);
 
     return (
-        <motion.div ref={cardRef} variants={cardVariants} initial="rest" transition={{ duration: 0.3, ease: 'easeOut' }} style={{
+        <motion.div ref={cardRef} initial="rest" whileHover={{ y: -8, borderColor: 'rgba(167,139,250,0.45)', boxShadow: `0 20px 60px ${service.glow}`, transition: { duration: 0.3, ease: 'easeOut' } }} style={{
             background: service.gradient,
-            border: '1px solid rgba(139, 92, 246, 0.2)',
+            border: '1.5px solid rgba(167,139,250,0.18)',
             borderRadius: '20px',
             padding: '2rem',
             cursor: 'pointer',
             position: 'relative',
             overflow: 'hidden',
-            boxShadow: '0 0 0px transparent',
+            boxShadow: '0 4px 24px rgba(124,92,191,0.06)',
             willChange: 'transform',
-        }} whileHover={{ y: -8, borderColor: 'rgba(192, 132, 252, 0.45)', boxShadow: `0 20px 60px ${service.glow}`, transition: { duration: 0.3, ease: 'easeOut' } }}>
-            <div style={{ fontSize: '2.2rem', marginBottom: '1rem', filter: 'drop-shadow(0 0 10px rgba(192,132,252,0.5))' }}>{service.icon}</div>
-            <h3 style={{ color: '#e2d9f3', fontSize: '1.15rem', fontWeight: 700, marginBottom: '0.6rem', letterSpacing: '0.02em' }}>{service.title}</h3>
-            <p style={{ color: 'rgba(200,185,230,0.65)', fontSize: '0.875rem', lineHeight: 1.75 }}>{service.desc}</p>
-            <motion.div whileHover={{ x: 4 }} style={{ marginTop: '1.25rem', color: '#c084fc', fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.3rem', width: 'fit-content' }}>Learn more <span>→</span>
-            </motion.div>
+        }}>
+            <div style={{ fontSize: '2.2rem', marginBottom: '1rem', filter: 'drop-shadow(0 4px 10px rgba(167,139,250,0.35))' }}>{service.icon}</div>
+            <h3 style={{ color: '#2d2438', fontSize: '1.15rem', fontWeight: 700, marginBottom: '0.6rem', letterSpacing: '0.02em' }}>{service.title}</h3>
+            <p style={{ color: '#6b5c8a', fontSize: '0.875rem', lineHeight: 1.75 }}>{service.desc}</p>
+            <motion.div whileHover={{ x: 4 }} style={{ marginTop: '1.25rem', color: '#7c5cbf', fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.3rem', width: 'fit-content' }}>Learn more <span>→</span></motion.div>
         </motion.div>
     );
 }
