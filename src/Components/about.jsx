@@ -1,12 +1,11 @@
 import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { StarField, SectionLabel } from './widgets';
 import { VALUES, TEAM, MILESTONES } from './values';
+import { CelestialField, SectionLabel } from './widgets';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 gsap.registerPlugin(ScrollTrigger);
-
 
 function TeamCard({ member, index }) {
     const ref = useRef(null);
@@ -142,7 +141,7 @@ export default function About() {
     return (
         <div style={{ background: '#faf9f7', minHeight: '100vh', color: '#2d2438', fontFamily: "'Inter', sans-serif", overflowX: 'hidden' }}>
             <section ref={heroRef} style={{ position: 'relative', minHeight: '90vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', background: 'linear-gradient(160deg, #fdf8ff 0%, #f5f0ff 40%, #fff8f5 100%)' }}>
-                <StarField />
+                {/*<StarField/>*/}<CelestialField />
                 <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '800px', height: '500px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(167,139,250,0.12) 0%, rgba(216,180,254,0.05) 50%, transparent 70%)', pointerEvents: 'none' }} />
                 <div style={{ position: 'absolute', bottom: '5%', right: '-8%', width: '360px', height: '360px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(251,207,232,0.2) 0%, transparent 70%)', pointerEvents: 'none' }} />
                 <div style={{ position: 'absolute', top: '15%', left: '-6%', width: '280px', height: '280px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(186,230,253,0.18) 0%, transparent 70%)', pointerEvents: 'none' }} />

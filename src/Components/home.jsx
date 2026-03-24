@@ -2,7 +2,7 @@ import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { StarField, SectionLabel, ServiceCard } from './widgets';
+import { CelestialField, SectionLabel, ServiceCard } from './widgets';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { SERVICES, STATS, TESTIMONIALS, testimonialVariants } from './values';
 
@@ -75,7 +75,7 @@ export default function Home() {
     return (
         <div style={{ background: '#faf9f7', minHeight: '100vh', color: '#2d2438', fontFamily: "'Inter', sans-serif", overflowX: 'hidden' }}>
             <motion.section ref={heroRef} style={{ opacity: heroOpacity, position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', background: 'linear-gradient(160deg, #fdf8ff 0%, #f5f0ff 40%, #fff8f5 100%)' }}>
-                <StarField />
+                {/* <StarField /> */}<CelestialField />
                 <motion.div ref={orbRef} style={{ position: 'absolute', top: '5%', left: '50%', translateX: '-50%', width: '700px', height: '700px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(167,139,250,0.12) 0%, rgba(216,180,254,0.06) 50%, transparent 70%)', pointerEvents: 'none', y: orbY }} />
                 <div style={{ position: 'absolute', bottom: '5%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(251,207,232,0.25) 0%, transparent 70%)', pointerEvents: 'none' }} />
                 <div style={{ position: 'absolute', top: '15%', left: '-8%', width: '320px', height: '320px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(186,230,253,0.2) 0%, transparent 70%)', pointerEvents: 'none' }} />
@@ -89,50 +89,11 @@ export default function Home() {
                     </h1>
                     <p ref={subtitleRef} style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)', lineHeight: 1.8, color: '#6b5c8a', maxWidth: '580px', margin: '0 auto 2.5rem', fontWeight: 400 }}>Unlock the profound wisdom of Vedic Astrology, Numerology & Vastu Shastra — crafted by master practitioners for your unique journey.</p>
                     <div ref={ctaRef} style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <motion.button onClick={scrollToServices} whileHover={{ scale: 1.04, boxShadow: '0 8px 30px rgba(124,92,191,0.35)' }} whileTap={{ scale: 0.97 }} style={{
-                            padding: '0.85rem 2.2rem',
-                            background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)',
-                            border: 'none',
-                            borderRadius: '50px',
-                            color: '#fff',
-                            fontSize: '1rem',
-                            fontWeight: 600,
-                            cursor: 'pointer',
-                            letterSpacing: '0.04em',
-                            boxShadow: '0 4px 20px rgba(124,92,191,0.25)',
-                        }}
-                        >Begin Your Journey ✦
-                        </motion.button>
-                        <motion.button onClick={() => { history.push('/services'); }} whileHover={{ scale: 1.04, background: 'rgba(167,139,250,0.1)' }} whileTap={{ scale: 0.97 }} style={{
-                            padding: '0.85rem 2.2rem',
-                            background: 'rgba(255,255,255,0.7)',
-                            border: '1.5px solid rgba(167,139,250,0.4)',
-                            borderRadius: '50px',
-                            color: '#7c5cbf',
-                            fontSize: '1rem',
-                            fontWeight: 500,
-                            cursor: 'pointer',
-                            letterSpacing: '0.04em',
-                            transition: 'background 0.2s',
-                            backdropFilter: 'blur(8px)',
-                        }}>Explore Services
-                        </motion.button>
+                        <motion.button onClick={scrollToServices} whileHover={{ scale: 1.04, boxShadow: '0 8px 30px rgba(124,92,191,0.35)' }} whileTap={{ scale: 0.97 }} style={{ padding: '0.85rem 2.2rem', background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)', border: 'none', borderRadius: '50px', color: '#fff', fontSize: '1rem', fontWeight: 600, cursor: 'pointer', letterSpacing: '0.04em', boxShadow: '0 4px 20px rgba(124,92,191,0.25)' }}>Begin Your Journey ✦</motion.button>
+                        <motion.button onClick={() => { history.push('/services'); }} whileHover={{ scale: 1.04, background: 'rgba(167,139,250,0.1)' }} whileTap={{ scale: 0.97 }} style={{ padding: '0.85rem 2.2rem', background: 'rgba(255,255,255,0.7)', border: '1.5px solid rgba(167,139,250,0.4)', borderRadius: '50px', color: '#7c5cbf', fontSize: '1rem', fontWeight: 500, cursor: 'pointer', letterSpacing: '0.04em', transition: 'background 0.2s', backdropFilter: 'blur(8px)' }}>Explore Services</motion.button>
                     </div>
                 </div>
-                <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }} style={{
-                    position: 'absolute',
-                    bottom: '2.5rem',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    gap: '0.4rem',
-                    color: 'rgba(124,92,191,0.45)',
-                    fontSize: '0.7rem',
-                    letterSpacing: '0.1em',
-                    pointerEvents: 'none',
-                }}>
+                <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }} style={{ position: 'absolute', bottom: '2.5rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.4rem', color: 'rgba(124,92,191,0.45)', fontSize: '0.7rem', letterSpacing: '0.1em', pointerEvents: 'none' }}>
                     <span>SCROLL</span>
                     <div style={{ width: '1px', height: '40px', background: 'linear-gradient(180deg, rgba(167,139,250,0.5), transparent)' }} />
                 </motion.div>
@@ -153,9 +114,7 @@ export default function Home() {
                     <h2 style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", background: 'linear-gradient(135deg, #3d2b6b, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '1rem' }}>Sacred Sciences, Modern Guidance</h2>
                     <p style={{ color: '#7a6b93', fontSize: '1rem', maxWidth: '520px', margin: '0 auto', lineHeight: 1.75 }}>Each service is rooted in millennia of Vedic tradition, delivered with contemporary precision.</p>
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
-                    {SERVICES.map((s, i) => <ServiceCard key={s.title} service={s} index={i} />)}
-                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>{SERVICES.map((s, i) => <ServiceCard key={s.title} service={s} index={i} />)}</div>
             </section>
             <section style={{ padding: '7rem 1.5rem', background: 'linear-gradient(180deg, transparent, rgba(245,240,255,0.7), transparent)' }}>
                 <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
@@ -169,19 +128,7 @@ export default function Home() {
                             { icon: '◈', title: 'Confidential & Secure', desc: 'Your personal data is fully encrypted and never shared.' },
                         ].map((f) => (
                             <div key={f.title} style={{ display: 'flex', gap: '1rem', marginBottom: '1.25rem' }}>
-                                <div style={{
-                                    width: '40px',
-                                    height: '40px',
-                                    borderRadius: '10px',
-                                    flexShrink: 0,
-                                    background: 'rgba(167,139,250,0.12)',
-                                    border: '1px solid rgba(167,139,250,0.25)',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    color: '#7c5cbf',
-                                    fontSize: '1rem',
-                                }}>{f.icon}
+                                <div style={{ width: '40px', height: '40px', borderRadius: '10px', flexShrink: 0, background: 'rgba(167,139,250,0.12)', border: '1px solid rgba(167,139,250,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#7c5cbf', fontSize: '1rem' }}>{f.icon}
                                 </div>
                                 <div>
                                     <div style={{ color: '#2d2438', fontWeight: 600, fontSize: '0.95rem', marginBottom: '0.2rem' }}>{f.title}</div>
@@ -191,27 +138,11 @@ export default function Home() {
                         ))}
                     </div>
                     <div className="reveal-up" style={{ display: 'flex', justifyContent: 'center' }}>
-                        <motion.div animate={{ rotate: [0, 1, -1, 0] }} transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }} style={{
-                            width: '340px',
-                            height: '420px',
-                            borderRadius: '24px',
-                            background: 'linear-gradient(145deg, rgba(245,240,255,0.9), rgba(255,255,255,0.95))',
-                            border: '1.5px solid rgba(167,139,250,0.2)',
-                            boxShadow: '0 30px 80px rgba(124,92,191,0.1), 0 2px 20px rgba(167,139,250,0.12)',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            gap: '1rem',
-                            position: 'relative',
-                            overflow: 'hidden',
-                        }}>
+                        <motion.div animate={{ rotate: [0, 1, -1, 0] }} transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }} style={{ width: '340px', height: '420px', borderRadius: '24px', background: 'linear-gradient(145deg, rgba(245,240,255,0.9), rgba(255,255,255,0.95))', border: '1.5px solid rgba(167,139,250,0.2)', boxShadow: '0 30px 80px rgba(124,92,191,0.1), 0 2px 20px rgba(167,139,250,0.12)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1rem', position: 'relative', overflow: 'hidden' }}>
                             <div style={{ fontSize: '6rem', filter: 'drop-shadow(0 4px 16px rgba(167,139,250,0.35))' }}>♃</div>
                             <div style={{ textAlign: 'center', padding: '0 2rem' }}>
                                 <div style={{ color: '#7c5cbf', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.4rem' }}>Jupiter Transit 2026</div>
-                                <div style={{ color: '#6b5c8a', fontSize: '0.85rem', lineHeight: 1.7 }}>
-                                    Major expansions await those born under Sagittarius & Pisces ascendants this cycle.
-                                </div>
+                                <div style={{ color: '#6b5c8a', fontSize: '0.85rem', lineHeight: 1.7 }}>Major expansions await those born under Sagittarius & Pisces ascendants this cycle.</div>
                             </div>
                             <div style={{ position: 'absolute', bottom: '-60px', left: '50%', transform: 'translateX(-50%)', width: '200px', height: '200px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(196,181,253,0.25), transparent 70%)', pointerEvents: 'none' }} />
                             <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '140px', height: '140px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(251,207,232,0.3), transparent 70%)', pointerEvents: 'none' }} />
@@ -227,35 +158,11 @@ export default function Home() {
                     </div>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
                         {TESTIMONIALS.map((t) => (
-                            <motion.div key={t.name} className="reveal-up" variants={testimonialVariants} initial="rest" whileHover="hover" transition={{ duration: 0.3, ease: 'easeOut' }} style={{
-                                background: '#ffffff',
-                                border: '1.5px solid rgba(167,139,250,0.18)',
-                                borderRadius: '20px',
-                                padding: '2rem',
-                                cursor: 'default',
-                                willChange: 'transform',
-                                boxShadow: '0 4px 24px rgba(124,92,191,0.06)',
-                            }}>
-                                <div style={{ display: 'flex', gap: '0.25rem', marginBottom: '1rem' }}>
-                                    {Array.from({ length: t.stars }).map((_, j) => (
-                                        <span key={j} style={{ color: '#fbbf24', fontSize: '0.9rem' }}>★</span>
-                                    ))}
-                                </div>
+                            <motion.div key={t.name} className="reveal-up" variants={testimonialVariants} initial="rest" whileHover="hover" transition={{ duration: 0.3, ease: 'easeOut' }} style={{ background: '#ffffff', border: '1.5px solid rgba(167,139,250,0.18)', borderRadius: '20px', padding: '2rem', cursor: 'default', willChange: 'transform', boxShadow: '0 4px 24px rgba(124,92,191,0.06)' }}>
+                                <div style={{ display: 'flex', gap: '0.25rem', marginBottom: '1rem' }}>{Array.from({ length: t.stars }).map((_, j) => <span key={j} style={{ color: '#fbbf24', fontSize: '0.9rem' }}>★</span>)}</div>
                                 <p style={{ color: '#5a4d73', fontSize: '0.9rem', lineHeight: 1.8, marginBottom: '1.5rem', fontStyle: 'italic' }}>"{t.text}"</p>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                                    <div style={{
-                                        width: '42px',
-                                        height: '42px',
-                                        borderRadius: '50%',
-                                        background: 'linear-gradient(135deg, #a78bfa, #c4b5fd)',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        color: '#fff',
-                                        fontWeight: 700,
-                                        fontSize: '1rem',
-                                        flexShrink: 0,
-                                    }}>{t.avatar}
+                                    <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: 'linear-gradient(135deg, #a78bfa, #c4b5fd)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: '1rem', flexShrink: 0 }}>{t.avatar}
                                     </div>
                                     <div>
                                         <div style={{ color: '#2d2438', fontWeight: 600, fontSize: '0.9rem' }}>{t.name}</div>
@@ -269,61 +176,13 @@ export default function Home() {
             </section>
             <section style={{ padding: '5rem 1.5rem 7rem' }}>
                 <div className="reveal-up" style={{ maxWidth: '820px', margin: '0 auto' }}>
-                    <motion.div whileHover={{ boxShadow: '0 30px 80px rgba(124,92,191,0.18)' }} transition={{ duration: 0.3 }} style={{
-                        background: 'linear-gradient(135deg, rgba(245,240,255,0.95), rgba(255,248,255,0.98))',
-                        border: '1.5px solid rgba(167,139,250,0.25)',
-                        borderRadius: '28px',
-                        padding: 'clamp(2.5rem, 5vw, 4rem)',
-                        textAlign: 'center',
-                        position: 'relative',
-                        overflow: 'hidden',
-                        boxShadow: '0 20px 60px rgba(124,92,191,0.08)',
-                    }}>
-                        <div style={{
-                            position: 'absolute',
-                            top: '-60px',
-                            right: '-60px',
-                            width: '220px',
-                            height: '220px',
-                            borderRadius: '50%',
-                            background: 'radial-gradient(circle, rgba(196,181,253,0.3), transparent 70%)',
-                            pointerEvents: 'none',
-                        }} />
-                        <div style={{
-                            position: 'absolute',
-                            bottom: '-50px',
-                            left: '-40px',
-                            width: '180px',
-                            height: '180px',
-                            borderRadius: '50%',
-                            background: 'radial-gradient(circle, rgba(251,207,232,0.3), transparent 70%)',
-                            pointerEvents: 'none',
-                        }} />
+                    <motion.div whileHover={{ boxShadow: '0 30px 80px rgba(124,92,191,0.18)' }} transition={{ duration: 0.3 }} style={{ background: 'linear-gradient(135deg, rgba(245,240,255,0.95), rgba(255,248,255,0.98))', border: '1.5px solid rgba(167,139,250,0.25)', borderRadius: '28px', padding: 'clamp(2.5rem, 5vw, 4rem)', textAlign: 'center', position: 'relative', overflow: 'hidden', boxShadow: '0 20px 60px rgba(124,92,191,0.08)' }}>
+                        <div style={{ position: 'absolute', top: '-60px', right: '-60px', width: '220px', height: '220px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(196,181,253,0.3), transparent 70%)', pointerEvents: 'none' }} />
+                        <div style={{ position: 'absolute', bottom: '-50px', left: '-40px', width: '180px', height: '180px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(251,207,232,0.3), transparent 70%)', pointerEvents: 'none' }} />
                         <div style={{ fontSize: '3rem', marginBottom: '1rem', filter: 'drop-shadow(0 4px 12px rgba(167,139,250,0.4))' }}>✦</div>
-                        <h2 style={{
-                            fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
-                            fontWeight: 800,
-                            fontFamily: "'Cormorant Garamond', serif",
-                            background: 'linear-gradient(135deg, #3d2b6b, #7c5cbf)',
-                            WebkitBackgroundClip: 'text',
-                            WebkitTextFillColor: 'transparent',
-                            marginBottom: '1rem',
-                        }}>Your Stars Are Aligned
-                        </h2>
+                        <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", background: 'linear-gradient(135deg, #3d2b6b, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '1rem' }}>Your Stars Are Aligned</h2>
                         <p style={{ color: '#6b5c8a', fontSize: '1rem', lineHeight: 1.75, maxWidth: '480px', margin: '0 auto 2.5rem' }}>Take the first step toward clarity. Book a personalized session with one of our master Vedic practitioners today.</p>
-                        <motion.button whileHover={{ scale: 1.04, boxShadow: '0 8px 36px rgba(124,92,191,0.4)' }} whileTap={{ scale: 0.97 }} style={{
-                            padding: '0.9rem 2.5rem',
-                            background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)',
-                            border: 'none',
-                            borderRadius: '50px',
-                            color: '#fff',
-                            fontSize: '1rem',
-                            fontWeight: 700,
-                            cursor: 'pointer',
-                            letterSpacing: '0.04em',
-                            boxShadow: '0 4px 22px rgba(124,92,191,0.3)',
-                        }}>Book a Free Consultation
-                        </motion.button>
+                        <motion.button whileHover={{ scale: 1.04, boxShadow: '0 8px 36px rgba(124,92,191,0.4)' }} whileTap={{ scale: 0.97 }} style={{ padding: '0.9rem 2.5rem', background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)', border: 'none', borderRadius: '50px', color: '#fff', fontSize: '1rem', fontWeight: 700, cursor: 'pointer', letterSpacing: '0.04em', boxShadow: '0 4px 22px rgba(124,92,191,0.3)' }}>Book a Free Consultation</motion.button>
                     </motion.div>
                 </div>
             </section>

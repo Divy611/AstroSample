@@ -1,8 +1,8 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef, useState } from 'react';
-import { SectionLabel, StarField } from './widgets';
 import { motion, AnimatePresence } from 'framer-motion';
+import { SectionLabel, CelestialField } from './widgets';
 import { SERVICES_OPTIONS, SOCIAL_LINKS, FAQS, CONTACT_METHODS, CONSULTATION_TYPES } from './values';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -303,7 +303,7 @@ export default function Contact() {
                 display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden',
                 background: 'linear-gradient(160deg, #fdf8ff 0%, #f5f0ff 40%, #fff8f5 100%)',
             }}>
-                <StarField count={50} />
+                {/*<StarField/>*/}<CelestialField />
                 <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '850px', height: '480px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(167,139,250,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
                 <div style={{ position: 'absolute', bottom: '0', right: '-8%', width: '320px', height: '320px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(251,207,232,0.2) 0%, transparent 70%)', pointerEvents: 'none' }} />
                 <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', padding: '9rem 1.5rem 4rem', maxWidth: '720px', margin: '0 auto' }}>

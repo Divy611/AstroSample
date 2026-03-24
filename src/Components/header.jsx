@@ -11,7 +11,7 @@ const NAV_LINKS = [
     { label: 'About', path: '/about' },
     { label: 'Services', path: '/services' },
     { label: 'Readings', path: '/readings' },
-    { label: 'Contact', path: '/contact' },
+    //{ label: 'Contact', path: '/contact' },
 ];
 
 function useWindowWidth() {

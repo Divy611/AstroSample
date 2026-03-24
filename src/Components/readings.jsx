@@ -1,9 +1,9 @@
 import gsap from 'gsap';
 import { READINGS } from './values';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { StarField, SectionLabel } from './widgets';
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { CelestialField, SectionLabel } from './widgets';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -302,7 +302,7 @@ export default function Readings() {
                 justifyContent: 'center', overflow: 'hidden',
                 background: 'linear-gradient(160deg, #fdf8ff 0%, #f5f0ff 40%, #fff8f5 100%)',
             }}>
-                <StarField />
+                {/*<StarField/>*/}<CelestialField />
                 <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '900px', height: '500px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(167,139,250,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
                 <div style={{ position: 'absolute', bottom: '5%', right: '-8%', width: '360px', height: '360px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(251,207,232,0.2) 0%, transparent 70%)', pointerEvents: 'none' }} />
                 <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', padding: '9rem 1.5rem 4rem', maxWidth: '760px', margin: '0 auto' }}>
