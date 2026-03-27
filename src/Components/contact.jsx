@@ -29,9 +29,7 @@ function FloatingInput({ label, type = 'text', value, onChange, required = false
     const labelStyle = {
         position: 'absolute', left: '1rem',
         top: isFloating ? '0.45rem' : '50%',
-        transform: as === 'textarea'
-            ? isFloating ? 'none' : 'translateY(-50%)'
-            : isFloating ? 'none' : 'translateY(-50%)',
+        transform: isFloating ? 'none' : 'translateY(-50%)',
         fontSize: isFloating ? '0.68rem' : '0.875rem',
         color: focused ? '#7c5cbf' : '#9585b0',
         pointerEvents: 'none',
@@ -80,17 +78,10 @@ function ContactMethodCard({ method, index }) {
 
     return (
         <motion.div ref={ref} whileHover={{ y: -6, borderColor: method.accentColor + '44', boxShadow: `0 18px 50px ${method.glowColor}` }} transition={{ duration: 0.28, ease: 'easeOut' }} style={{ background: method.gradient, border: '1.5px solid rgba(167,139,250,0.18)', borderRadius: '20px', padding: '1.75rem', display: 'flex', alignItems: 'flex-start', gap: '1.1rem', willChange: 'transform', cursor: 'default', boxShadow: '0 4px 20px rgba(124,92,191,0.05)' }}>
-            <div style={{
-                width: '46px', height: '46px', borderRadius: '14px', flexShrink: 0,
-                background: `${method.accentColor}12`,
-                border: `1.5px solid ${method.accentColor}28`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '1.3rem', color: method.accentColor,
-                filter: `drop-shadow(0 4px 8px ${method.glowColor})`,
-            }}>{method.icon}</div>
+            <div style={{ width: '45px', height: '45px', borderRadius: '14px', flexShrink: 0, background: `${method.accentColor}12`, border: `1.5px solid ${method.accentColor}28`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem', color: method.accentColor, filter: `drop-shadow(0 4px 8px ${method.glowColor})` }}>{method.icon}</div>
             <div>
                 <div style={{ color: '#9585b0', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.3rem' }}>{method.label}</div>
-                <div style={{ color: '#2d2438', fontSize: '0.95rem', fontWeight: 700, marginBottom: '0.2rem' }}>{method.value}</div>
+                <a href={method.link} style={{ color: '#2d2438', fontSize: '0.95rem', fontWeight: 700, marginBottom: '0.2rem' }}>{method.value}</a>
                 <div style={{ color: '#9585b0', fontSize: '0.78rem' }}>{method.sub}</div>
             </div>
         </motion.div>
@@ -122,8 +113,8 @@ function SuccessScreen({ name, onReset }) {
         <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.45, ease: 'backOut' }} style={{ textAlign: 'center', padding: '4rem 2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.25rem' }}>
             <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.15, duration: 0.5, ease: 'backOut' }} style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, rgba(16,185,129,0.2), rgba(52,211,153,0.08))', border: '2px solid rgba(16,185,129,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2.2rem', boxShadow: '0 0 30px rgba(16,185,129,0.15)' }}>✦</motion.div>
             <div>
-                <h3 style={{ color: '#2d2438', fontSize: 'clamp(1.3rem, 3vw, 1.75rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", marginBottom: '0.5rem' }}>Message Received, {name.split(' ')[0]}</h3>
-                <p style={{ color: '#6b5c8a', fontSize: '0.9rem', lineHeight: 1.75, maxWidth: '340px', margin: '0 auto' }}>One of our practitioners will review your query and reach out within 24 hours.</p>
+                <h3 style={{ color: '#2d2438', fontSize: 'clamp(1.3rem, 3vw, 1.75rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", marginBottom: '0.5rem' }}>Got it, {name.split(' ')[0]}</h3>
+                <p style={{ color: '#6b5c8a', fontSize: '0.9rem', lineHeight: 1.75, maxWidth: '340px', margin: '0 auto' }}>I've received your message and will get back to you personally within 24 hours.</p>
             </div>
             <motion.div animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} style={{ color: '#a78bfa', fontSize: '1.5rem', letterSpacing: '0.4rem' }}>✦ ✦ ✦</motion.div>
             <motion.button whileHover={{ scale: 1.04, background: 'rgba(167,139,250,0.12)' }} whileTap={{ scale: 0.97 }} onClick={onReset} style={{ marginTop: '0.5rem', padding: '0.65rem 1.75rem', background: 'rgba(167,139,250,0.08)', border: '1.5px solid rgba(167,139,250,0.28)', borderRadius: '50px', color: '#7c5cbf', fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer', letterSpacing: '0.04em', transition: 'background 0.2s' }}>Send Another Message</motion.button>
@@ -174,7 +165,7 @@ function ContactForm() {
             <div style={{ marginBottom: '2rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.6rem' }}>
                     <span style={{ color: '#9585b0', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.06em' }}>STEP {step} OF {TOTAL_STEPS}</span>
-                    <span style={{ color: '#7c5cbf', fontSize: '0.75rem', fontWeight: 600 }}>{step === 1 ? 'Your Details' : 'Consultation Details'}</span>
+                    <span style={{ color: '#7c5cbf', fontSize: '0.75rem', fontWeight: 600 }}>{step === 1 ? 'Your Details' : 'Your Enquiry'}</span>
                 </div>
                 <div style={{ height: '3px', background: 'rgba(167,139,250,0.15)', borderRadius: '10px', overflow: 'hidden' }}>
                     <motion.div animate={{ width: progressWidth }} transition={{ duration: 0.4, ease: 'easeOut' }} style={{ height: '100%', background: 'linear-gradient(90deg, #7c5cbf, #a78bfa)', borderRadius: '10px' }} />
@@ -186,14 +177,14 @@ function ContactForm() {
                         <FloatingInput label="Full Name" value={form.name} onChange={set('name')} required />
                         <FloatingInput label="Email Address" type="email" value={form.email} onChange={set('email')} required />
                         <FloatingInput label="Phone Number (optional)" type="tel" value={form.phone} onChange={set('phone')} />
-                        <FloatingInput label="Service of Interest" as="select" value={form.service} onChange={set('service')} required options={SERVICES_OPTIONS} />
+                        <FloatingInput label="Area of Interest" as="select" value={form.service} onChange={set('service')} required options={SERVICES_OPTIONS} />
                         <motion.button whileHover={{ scale: 1.02, boxShadow: '0 8px 28px rgba(124,92,191,0.35)' }} whileTap={{ scale: 0.97 }} type="submit" style={{ marginTop: '0.5rem', padding: '0.9rem', background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)', border: 'none', borderRadius: '12px', color: '#fff', fontSize: '0.93rem', fontWeight: 700, cursor: 'pointer', letterSpacing: '0.04em', boxShadow: '0 4px 20px rgba(124,92,191,0.25)' }}>Continue →</motion.button>
                     </motion.form>
                 )}
                 {step === 2 && (
                     <motion.form key="step2" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ duration: 0.3, ease: 'easeOut' }} onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                         <div>
-                            <div style={{ color: '#9585b0', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Preferred Consultation Format *</div>
+                            <div style={{ color: '#9585b0', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Preferred Format *</div>
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.6rem' }}>
                                 {CONSULTATION_TYPES.map((ct) => {
                                     const isSelected = form.consultationType === ct.id;
@@ -210,18 +201,18 @@ function ContactForm() {
                             </div>
                         </div>
                         <AnimatePresence>
-                            {(form.service === 'Vedic Astrology' || form.service === 'Kundli Matching') && (
+                            {(form.service === 'Jyotish (Birth Chart)' || form.service === 'Kundli Matching') && (
                                 <motion.div key="birth-fields" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.3, ease: 'easeInOut' }} style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                                     <div style={{ padding: '0.75rem 1rem', borderRadius: '10px', background: 'rgba(167,139,250,0.07)', border: '1px solid rgba(167,139,250,0.2)', display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
                                         <span style={{ color: '#7c5cbf', fontSize: '0.85rem', marginTop: '0.05rem' }}>✦</span>
-                                        <span style={{ color: '#6b5c8a', fontSize: '0.8rem', lineHeight: 1.65 }}>For {form.service}, please share your birth details below for a more precise reading.</span>
+                                        <span style={{ color: '#6b5c8a', fontSize: '0.8rem', lineHeight: 1.65 }}>For {form.service}, an accurate birth time greatly helps — ideally within 15 minutes. Please share what you have.</span>
                                     </div>
                                     <FloatingInput label="Date of Birth" type="date" value={form.birthDate} onChange={set('birthDate')} required />
                                     <FloatingInput label="Birth City / Place" value={form.birthPlace} onChange={set('birthPlace')} required />
                                 </motion.div>
                             )}
                         </AnimatePresence>
-                        <FloatingInput label="Your Message" as="textarea" rows={4} value={form.message} onChange={set('message')} required />
+                        <FloatingInput label="Tell me what you're dealing with" as="textarea" rows={4} value={form.message} onChange={set('message')} required />
                         <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.25rem' }}>
                             <motion.button type="button" onClick={() => setStep(1)} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }} style={{ flex: '0 0 auto', padding: '0.9rem 1.4rem', background: 'rgba(167,139,250,0.07)', border: '1.5px solid rgba(167,139,250,0.22)', borderRadius: '12px', color: '#6b5c8a', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}>← Back</motion.button>
                             <motion.button whileHover={{ scale: !submitting ? 1.02 : 1, boxShadow: !submitting ? '0 8px 28px rgba(124,92,191,0.35)' : 'none' }} whileTap={{ scale: !submitting ? 0.97 : 1 }} type="submit" disabled={submitting || !form.consultationType} style={{
@@ -259,8 +250,7 @@ export default function Contact() {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-            tl.fromTo(titleRef.current, { opacity: 0, y: 55 }, { opacity: 1, y: 0, duration: 1, delay: 0.2 })
+            gsap.timeline({ defaults: { ease: 'power3.out' } }).fromTo(titleRef.current, { opacity: 0, y: 55 }, { opacity: 1, y: 0, duration: 1, delay: 0.2 })
                 .fromTo(subtitleRef.current, { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.85 }, '-=0.5');
         }, heroRef);
         return () => ctx.revert();
@@ -273,7 +263,7 @@ export default function Contact() {
                     { opacity: 0, y: 40 },
                     {
                         opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
-                        scrollTrigger: { trigger: el, start: 'top 89%' }
+                        scrollTrigger: { trigger: el, start: 'top 89%' },
                     }
                 );
             });
@@ -298,22 +288,18 @@ export default function Contact() {
 
     return (
         <div style={{ background: '#faf9f7', minHeight: '100vh', color: '#2d2438', fontFamily: "'Inter', sans-serif", overflowX: 'hidden' }}>
-            <section ref={heroRef} style={{
-                position: 'relative', minHeight: '58vh',
-                display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden',
-                background: 'linear-gradient(160deg, #fdf8ff 0%, #f5f0ff 40%, #fff8f5 100%)',
-            }}>
+            <section ref={heroRef} style={{ position: 'relative', minHeight: '58vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', background: 'linear-gradient(160deg, #fdf8ff 0%, #f5f0ff 40%, #fff8f5 100%)' }}>
                 {/*<StarField/>*/}<CelestialField />
                 <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '850px', height: '480px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(167,139,250,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
-                <div style={{ position: 'absolute', bottom: '0', right: '-8%', width: '320px', height: '320px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(251,207,232,0.2) 0%, transparent 70%)', pointerEvents: 'none' }} />
+                <div style={{ position: 'absolute', bottom: 0, right: '-8%', width: '320px', height: '320px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(251,207,232,0.2) 0%, transparent 70%)', pointerEvents: 'none' }} />
                 <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', padding: '9rem 1.5rem 4rem', maxWidth: '720px', margin: '0 auto' }}>
                     <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, ease: 'backOut' }} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.4rem 1.2rem', borderRadius: '30px', border: '1px solid rgba(167,139,250,0.35)', background: 'rgba(167,139,250,0.08)', color: '#7c5cbf', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '1.75rem' }}>✦ Get in Touch</motion.div>
                     <h1 ref={titleRef} style={{ fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.02em', fontFamily: "'Cormorant Garamond', serif", marginBottom: '1.25rem' }}>
-                        <span style={{ background: 'linear-gradient(135deg, #3d2b6b 30%, #7c5cbf 70%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Begin Your</span>
+                        <span style={{ background: 'linear-gradient(135deg, #3d2b6b 30%, #7c5cbf 70%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Let's Start</span>
                         <br />
-                        <span style={{ background: 'linear-gradient(135deg, #a78bfa, #c4b5fd, #f0abfc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Conversation</span>
+                        <span style={{ background: 'linear-gradient(135deg, #a78bfa, #c4b5fd, #f0abfc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>a Conversation</span>
                     </h1>
-                    <p ref={subtitleRef} style={{ fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', lineHeight: 1.85, color: '#6b5c8a', maxWidth: '500px', margin: '0 auto', fontWeight: 400 }}>Whether you have a specific question or simply feel the pull of the stars, we are here to listen, guide, and illuminate.</p>
+                    <p ref={subtitleRef} style={{ fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', lineHeight: 1.85, color: '#6b5c8a', maxWidth: '500px', margin: '0 auto', fontWeight: 400 }}>Whether you have a specific situation in mind or simply want to understand what's going on — I'm here to listen and help you figure out the right next step.</p>
                 </div>
             </section>
             <section style={{ padding: '2rem 1.5rem 5rem', maxWidth: '1200px', margin: '0 auto' }}>
@@ -326,17 +312,17 @@ export default function Contact() {
                     <motion.div className="reveal-up" style={{ background: '#ffffff', border: '1.5px solid rgba(167,139,250,0.18)', borderRadius: '28px', overflow: 'hidden', boxShadow: '0 8px 48px rgba(124,92,191,0.08)' }}>
                         <div style={{ padding: '2rem 2.5rem 1.75rem', borderBottom: '1px solid rgba(167,139,250,0.12)', background: 'linear-gradient(135deg, rgba(245,240,255,0.8), rgba(255,255,255,0.95))' }}>
                             <SectionLabel>Send a Message</SectionLabel>
-                            <h2 style={{ color: '#2d2438', fontSize: 'clamp(1.3rem, 3vw, 1.75rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", lineHeight: 1.2 }}>Tell Us What You Seek</h2>
+                            <h2 style={{ color: '#2d2438', fontSize: 'clamp(1.3rem, 3vw, 1.75rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", lineHeight: 1.2 }}>Tell Me What You're Dealing With</h2>
                         </div>
                         <div style={{ padding: '2rem 2.5rem 2.5rem' }}><ContactForm /></div>
                     </motion.div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                         <motion.div className="reveal-up" style={{ background: 'rgba(245,240,255,0.7)', border: '1.5px solid rgba(167,139,250,0.18)', borderRadius: '22px', padding: '2rem' }}>
-                            <div style={{ color: '#7c5cbf', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>✦ Office Hours</div>
+                            <div style={{ color: '#7c5cbf', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>✦ Availability</div>
                             {[
                                 { day: 'Monday – Friday', hours: '9:00 AM – 7:00 PM IST' },
                                 { day: 'Saturday', hours: '10:00 AM – 5:00 PM IST' },
-                                { day: 'Sunday', hours: 'Closed (Emergency by WhatsApp)' },
+                                { day: 'Sunday', hours: 'Closed (Urgent queries via WhatsApp)' },
                             ].map((row, i) => (
                                 <div key={row.day} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', padding: '0.7rem 0', borderBottom: i < 2 ? '1px solid rgba(167,139,250,0.1)' : 'none', gap: '1rem' }}>
                                     <span style={{ color: '#6b5c8a', fontSize: '0.85rem' }}>{row.day}</span>
@@ -347,12 +333,12 @@ export default function Contact() {
                         <motion.div className="reveal-up" whileHover={{ borderColor: 'rgba(16,185,129,0.35)', boxShadow: '0 10px 36px rgba(16,185,129,0.1)' }} transition={{ duration: 0.25 }} style={{ background: 'rgba(240,253,244,0.8)', border: '1.5px solid rgba(16,185,129,0.2)', borderRadius: '18px', padding: '1.5rem 1.75rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
                             <motion.div animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981', flexShrink: 0, boxShadow: '0 0 10px rgba(16,185,129,0.5)' }} />
                             <div>
-                                <div style={{ color: '#059669', fontSize: '0.82rem', fontWeight: 700, marginBottom: '0.15rem' }}>Average Response: &lt; 6 Hours</div>
-                                <div style={{ color: '#6b5c8a', fontSize: '0.75rem' }}>During office hours on business days</div>
+                                <div style={{ color: '#059669', fontSize: '0.82rem', fontWeight: 700, marginBottom: '0.15rem' }}>I typically respond within 6 hours</div>
+                                <div style={{ color: '#6b5c8a', fontSize: '0.75rem' }}>During availability hours on business days</div>
                             </div>
                         </motion.div>
                         <motion.div className="reveal-up" style={{ background: 'rgba(245,240,255,0.6)', border: '1.5px solid rgba(167,139,250,0.16)', borderRadius: '22px', padding: '2rem' }}>
-                            <div style={{ color: '#7c5cbf', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>✦ Follow Our Journey</div>
+                            <div style={{ color: '#7c5cbf', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>✦ Find Me Online</div>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                                 {SOCIAL_LINKS.map((s) => (
                                     <motion.a key={s.label} href={s.href} whileHover={{ x: 5, color: s.color }} transition={{ duration: 0.2 }} style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', color: '#6b5c8a', textDecoration: 'none', fontSize: '0.875rem', fontWeight: 500, padding: '0.5rem 0', borderBottom: '1px solid rgba(167,139,250,0.08)' }}>
@@ -364,7 +350,7 @@ export default function Contact() {
                         </motion.div>
                         <motion.div className="reveal-up" style={{ padding: '1.25rem 1.5rem', borderRadius: '16px', background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.14)', display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
                             <span style={{ color: '#7c5cbf', fontSize: '1rem', marginTop: '0.05rem', flexShrink: 0 }}>◈</span>
-                            <p style={{ color: '#9585b0', fontSize: '0.8rem', lineHeight: 1.75, margin: 0 }}>All personal details and birth data shared with us are encrypted and treated with complete confidentiality. We never share your information with third parties.</p>
+                            <p style={{ color: '#9585b0', fontSize: '0.8rem', lineHeight: 1.75, margin: 0 }}>All personal details and birth data you share with me are kept strictly confidential and are never shared with any third party.</p>
                         </motion.div>
                     </div>
                 </div>
@@ -376,7 +362,7 @@ export default function Contact() {
                         <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", background: 'linear-gradient(135deg, #3d2b6b, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Common Questions</h2>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                        {FAQS.map((faq, i) => <div key={i} className="faq-item"><FAQItem faq={faq} index={i} /></div>)}
+                        {FAQS.map((faq, i) => <div key={i} className="faq-item"><FAQItem faq={faq} /></div>)}
                     </div>
                 </div>
             </section>

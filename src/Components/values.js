@@ -1,47 +1,41 @@
+export const WHATSAPP_URL = process.env.REACT_APP_WHATSAPP_REDIRECT_URL;
+
 export const SERVICES = [
-    {
-        icon: '♈',
-        title: 'Vedic Astrology',
-        desc: 'Uncover planetary influences on your destiny through ancient Jyotish science, personalized to your birth chart.',
-        gradient: 'linear-gradient(135deg, rgba(124,58,237,0.2), rgba(192,132,252,0.05))',
-        borderHover: '1px solid rgba(192,132,252,0.4)',
-        glow: 'rgba(124, 58, 237, 0.35)',
-    },
     {
         icon: '✦',
         title: 'Numerology',
-        desc: 'Decode the vibrational power of numbers embedded in your name and birth date to chart your life path.',
+        desc: 'Understand the patterns influencing your life and decisions. From personal readings to name alignment and mobile numerology, get clarity that is structured and actionable.',
         gradient: 'linear-gradient(135deg, rgba(219,39,119,0.15), rgba(192,132,252,0.05))',
         glow: 'rgba(219, 39, 119, 0.3)',
     },
     {
         icon: '⌂',
-        title: 'Vastu Shastra',
-        desc: 'Harmonize your living and work spaces with cosmic energy flows for prosperity, health, and peace.',
+        title: 'Vastu',
+        desc: 'Create balance in your living and working spaces without disruption. Special focus on practical remedies without demolition.',
         gradient: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(192,132,252,0.05))',
         glow: 'rgba(16, 185, 129, 0.3)',
     },
     {
-        icon: '☽',
-        title: 'Tarot & Oracle',
-        desc: 'Illuminating guidance through the sacred art of tarot, offering clarity on love, career, and spiritual growth.',
-        gradient: 'linear-gradient(135deg, rgba(245,158,11,0.15), rgba(192,132,252,0.05))',
-        glow: 'rgba(245, 158, 11, 0.3)',
-    },
-    {
-        icon: '◈',
-        title: 'Kundli Matching',
-        desc: 'Evaluate compatibility and auspiciousness of union through Ashtakoot matching and divisional charts.',
-        gradient: 'linear-gradient(135deg, rgba(239,68,68,0.15), rgba(192,132,252,0.05))',
-        glow: 'rgba(239, 68, 68, 0.3)',
-    },
-    {
         icon: '☿',
-        title: 'Muhurta',
-        desc: 'Choose the most auspicious timings for marriage, business launches, travel, and major life decisions.',
+        title: 'Jyotish',
+        desc: 'Deep insights into your life path, career direction, and relationships through your birth chart—explained with clarity and logic.',
         gradient: 'linear-gradient(135deg, rgba(6,182,212,0.15), rgba(192,132,252,0.05))',
         glow: 'rgba(6, 182, 212, 0.3)',
     },
+];
+
+export const HOW_IT_WORKS = [
+    { step: '01', title: 'Start on WhatsApp', desc: 'Reach out and briefly share your concern or area of focus.' },
+    { step: '02', title: 'Initial Understanding', desc: 'I\'ll understand your requirement and suggest the right consultation for you.' },
+    { step: '03', title: 'Confirmation & Payment', desc: 'Consultation details and payment via UPI / NEFT will be shared with you.' },
+    { step: '04', title: 'Your Session', desc: 'A focused 60-minute session via Zoom or WhatsApp — structured and personalised.' },
+];
+
+export const WHY_ME = [
+    { icon: '◈', title: 'Logical, Structured Approach', desc: 'No vague predictions. Every insight is reasoned, explained, and actionable.' },
+    { icon: '✦', title: '5+ Years · 1000+ Clients', desc: 'Guided individuals across India, USA, UK, Germany, France, Dubai and beyond.' },
+    { icon: '☽', title: 'Personalised to You', desc: 'No generic readings. Every consultation is built around your specific situation.' },
+    { icon: '△', title: 'Practical, Real-World Solutions', desc: 'Guidance you can apply immediately — focused on what to understand and what to do next.' },
 ];
 
 export const TESTIMONIALS = [
@@ -283,16 +277,18 @@ export const CONTACT_METHODS = [
     {
         icon: '✉',
         label: 'Email Us',
-        value: 'hello@purplecelestia.in',
-        sub: 'We respond within 24 hours',
         accentColor: '#c084fc',
+        value: 'hello@thepurplelady.in',
+        sub: 'We respond within 24 hours',
         glowColor: 'rgba(192,132,252,0.3)',
+        link: 'mailto:hello@thepurplelady.in',
         gradient: 'linear-gradient(135deg, rgba(124,58,237,0.18), rgba(192,132,252,0.05))',
     },
     {
         icon: '☏',
         label: 'Call Us',
         value: '+91 98765 43210',
+        link: 'tel:+91 98765 43210',
         sub: 'Mon – Sat, 9 AM – 7 PM IST',
         accentColor: '#34d399',
         glowColor: 'rgba(16,185,129,0.3)',
@@ -300,6 +296,7 @@ export const CONTACT_METHODS = [
     },
     {
         icon: '◎',
+        link: '/contact',
         label: 'Visit Us',
         value: 'Gurgram, Haryana',
         sub: 'By appointment only',
@@ -310,6 +307,7 @@ export const CONTACT_METHODS = [
     {
         icon: '⊕',
         label: 'WhatsApp',
+        link: WHATSAPP_URL,
         value: '+91 98765 43210',
         sub: 'Quick queries & booking',
         accentColor: '#67e8f9',
@@ -498,18 +496,15 @@ export const OUR_SERVICES = [
         ],
     },
     {
-        id: 'muhurta',
+        id: 'jyotish',
         icon: '☿',
-        label: 'Muhurta',
+        label: 'Jyotish',
         tagline: 'Time is the most powerful tool you own',
         gradient: 'linear-gradient(135deg, rgba(6,182,212,0.18), rgba(103,232,249,0.05))',
         accentColor: '#67e8f9',
         glowColor: 'rgba(6,182,212,0.4)',
         borderHover: 'rgba(103,232,249,0.5)',
-        desc: `Muhurta is the Vedic science of electional astrology — selecting the most auspicious moment
-    to initiate any significant action. The ancient rishis understood that the quality of time itself
-    varies, and beginning an endeavour under a favourable celestial configuration greatly increases its
-    chances of success, longevity, and harmony.`,
+        desc: `Deep insights into your life path, career direction, and relationships through your birth chart—explained with clarity and logic.`,
         offerings: [
             { name: 'Business Launch Muhurta', duration: '45 min', price: '₹1,500' },
             { name: 'Property Purchase Timing', duration: '45 min', price: '₹1,200' },
