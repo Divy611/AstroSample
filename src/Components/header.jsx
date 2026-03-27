@@ -11,7 +11,6 @@ const NAV_LINKS = [
     { label: 'About', path: '/about' },
     { label: 'Services', path: '/services' },
     { label: 'Readings', path: '/readings' },
-    { label: 'Contact', path: '/contact' },
 ];
 
 function useWindowWidth() {
@@ -77,7 +76,7 @@ export default function Header() {
                 <Link to="/" style={{ textDecoration: 'none' }}>
                     <div ref={logoRef} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', cursor: 'pointer' }}>
                         <div style={{ width: '38px', height: '38px', borderRadius: '50%', background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 14px rgba(124,92,191,0.25)', fontSize: '18px', color: '#fff' }}>✦</div>
-                        <span style={{ fontSize: '1.35rem', fontWeight: 700, letterSpacing: '0.04em', background: 'linear-gradient(90deg, #3d2b6b, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: "'Cormorant Garamond', serif" }}>Purple Celestia</span>
+                        <span style={{ fontSize: '1.35rem', fontWeight: 700, letterSpacing: '0.04em', background: 'linear-gradient(90deg, #3d2b6b, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: "'Cormorant Garamond', serif" }}>The Purple Lady</span>
                     </div>
                 </Link>
                 {isDesktop && (

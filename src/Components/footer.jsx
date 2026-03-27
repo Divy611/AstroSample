@@ -24,10 +24,10 @@ const FOOTER_LINKS = {
 };
 
 const SOCIAL_ICONS = [
-    { label: 'Instagram', icon: <i class="bi bi-instagram text-lg"></i>, href: 'https://www.instagram.com/thepurplelady_666/' },
-    { label: 'YouTube', icon: <i class="bi bi-youtube text-lg"></i>, href: 'https://youtube.com' },
-    { label: 'Twitter', icon: <i class="bi bi-twitter-x text-lg"></i>, href: 'https://x.com' },
-    { label: 'Facebook', icon: <i class="bi bi-facebook text-lg"></i>, href: 'https://facebook.com' },
+    { label: 'Instagram', icon: <i className="bi bi-instagram text-lg"></i>, href: 'https://www.instagram.com/thepurplelady_666/' },
+    { label: 'YouTube', icon: <i className="bi bi-youtube text-lg"></i>, href: 'https://youtube.com' },
+    { label: 'Twitter', icon: <i className="bi bi-twitter-x text-lg"></i>, href: 'https://x.com' },
+    { label: 'Facebook', icon: <i className="bi bi-facebook text-lg"></i>, href: 'https://facebook.com' },
 ];
 
 function getMoonPhase() {
