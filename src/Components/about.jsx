@@ -134,7 +134,9 @@ export default function About() {
                         <br />
                         <span style={{ background: 'linear-gradient(135deg, #a78bfa, #c4b5fd, #f0abfc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Science meets the stars.</span>
                     </h1>
-                    <p ref={subtitleRef} style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', lineHeight: 1.85, color: '#6b5c8a', maxWidth: '560px', margin: '0 auto', fontWeight: 400 }}>Hi, I'm <strong style={{ color: '#3d2b6b' }}>The [Name]</strong>. My work lies at the intersection of logic and intuition — where occult sciences are not just believed, but understood, applied, and experienced.</p>
+                    <p ref={subtitleRef} style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', lineHeight: 1.85, color: '#6b5c8a', maxWidth: '560px', margin: '0 auto', fontWeight: 400 }}>
+                        {/* Hi, I'm <strong style={{ color: '#3d2b6b' }}>Puja</strong>.  */}
+                        My work lies at the intersection of logic and intuition — where occult sciences are not just believed, but understood, applied, and experienced.</p>
                 </motion.div>
             </section>
             <section style={{ padding: '6rem 1.5rem' }}>
