@@ -360,33 +360,33 @@ export const FAQS = [
 ];
 
 export const OUR_SERVICES = [
-    {
-        id: 'astrology',
-        icon: '♈',
-        label: 'Vedic Astrology',
-        tagline: 'Read the sky, understand your soul',
-        gradient: 'linear-gradient(135deg, rgba(124,58,237,0.22), rgba(192,132,252,0.06))',
-        accentColor: '#c084fc',
-        glowColor: 'rgba(124,58,237,0.4)',
-        borderHover: 'rgba(192,132,252,0.5)',
-        desc: `Vedic Astrology — or Jyotish Shastra — is the oldest living astrological tradition on Earth,
-    with roots stretching back over 5,000 years into the Vedic civilization of ancient India. Unlike
-    Western astrology, it uses the sidereal zodiac, which tracks the actual positions of constellations
-    in the sky, giving it a precision unmatched in any other tradition.`,
-        offerings: [
-            { name: 'Birth Chart (Kundli) Analysis', duration: '90 min', price: '₹2,500' },
-            { name: 'Annual Forecast (Varshaphal)', duration: '60 min', price: '₹1,800' },
-            { name: 'Career & Finance Reading', duration: '60 min', price: '₹1,800' },
-            { name: 'Prashna (Horary) Astrology', duration: '45 min', price: '₹1,200' },
-            { name: 'Planetary Transit Report', duration: 'Written', price: '₹999' },
-        ],
-        benefits: [
-            'Understand your dharma and life purpose',
-            'Navigate career crossroads with planetary clarity',
-            'Identify auspicious periods for major decisions',
-            'Heal karmic patterns embedded in your chart',
-        ],
-    },
+    //{
+    //    id: 'astrology',
+    //    icon: '♈',
+    //    label: 'Vedic Astrology',
+    //    tagline: 'Read the sky, understand your soul',
+    //    gradient: 'linear-gradient(135deg, rgba(124,58,237,0.22), rgba(192,132,252,0.06))',
+    //    accentColor: '#c084fc',
+    //    glowColor: 'rgba(124,58,237,0.4)',
+    //    borderHover: 'rgba(192,132,252,0.5)',
+    //    desc: `Vedic Astrology — or Jyotish Shastra — is the oldest living astrological tradition on Earth,
+    //with roots stretching back over 5,000 years into the Vedic civilization of ancient India. Unlike
+    //Western astrology, it uses the sidereal zodiac, which tracks the actual positions of constellations
+    //in the sky, giving it a precision unmatched in any other tradition.`,
+    //    offerings: [
+    //        { name: 'Birth Chart (Kundli) Analysis', duration: '90 min', price: '₹2,500' },
+    //        { name: 'Annual Forecast (Varshaphal)', duration: '60 min', price: '₹1,800' },
+    //        { name: 'Career & Finance Reading', duration: '60 min', price: '₹1,800' },
+    //        { name: 'Prashna (Horary) Astrology', duration: '45 min', price: '₹1,200' },
+    //        { name: 'Planetary Transit Report', duration: 'Written', price: '₹999' },
+    //    ],
+    //    benefits: [
+    //        'Understand your dharma and life purpose',
+    //        'Navigate career crossroads with planetary clarity',
+    //        'Identify auspicious periods for major decisions',
+    //        'Heal karmic patterns embedded in your chart',
+    //    ],
+    //},
     {
         id: 'numerology',
         icon: '✦',
@@ -441,60 +441,60 @@ export const OUR_SERVICES = [
             'Identify and neutralize Vastu doshas without demolition',
         ],
     },
-    {
-        id: 'tarot',
-        icon: '☽',
-        label: 'Tarot & Oracle',
-        tagline: 'The cards reflect what the heart already knows',
-        gradient: 'linear-gradient(135deg, rgba(245,158,11,0.18), rgba(252,211,77,0.05))',
-        accentColor: '#fbbf24',
-        glowColor: 'rgba(245,158,11,0.4)',
-        borderHover: 'rgba(252,211,77,0.5)',
-        desc: `Tarot is not fortune-telling — it is a mirror. Our practitioners use the 78-card Rider-Waite
-    and Thoth decks alongside Vedic oracle systems to illuminate the energies currently active in your
-    life, helping you make aligned decisions from a place of awareness rather than anxiety. Every reading
-    is an empowering, forward-looking dialogue between your intuition and the universal archetypes.`,
-        offerings: [
-            { name: 'General Life Reading (10-card)', duration: '60 min', price: '₹1,200' },
-            { name: 'Love & Relationship Spread', duration: '45 min', price: '₹999' },
-            { name: 'Career & Purpose Reading', duration: '45 min', price: '₹999' },
-            { name: 'Monthly Oracle Forecast', duration: 'Written', price: '₹599' },
-            { name: 'Celtic Cross Deep Dive', duration: '75 min', price: '₹1,500' },
-        ],
-        benefits: [
-            'Gain clarity on confusing or stuck life situations',
-            'Understand hidden dynamics in relationships',
-            'Receive guidance before major decisions',
-            'Connect with your own intuitive wisdom',
-        ],
-    },
-    {
-        id: 'kundli',
-        icon: '◈',
-        label: 'Kundli Matching',
-        tagline: 'Celestial compatibility for lifelong union',
-        gradient: 'linear-gradient(135deg, rgba(239,68,68,0.18), rgba(252,165,165,0.05))',
-        accentColor: '#f87171',
-        glowColor: 'rgba(239,68,68,0.35)',
-        borderHover: 'rgba(252,165,165,0.5)',
-        desc: `Kundli Matching — or Guna Milan — is the Vedic method of evaluating matrimonial compatibility
-    through a multi-layered analysis of two birth charts. Beyond the popular 36-point Ashtakoot system,
-    our practitioners examine Navamsa charts, Mangal Dosha, Dasha compatibility, and longevity indicators
-    to provide a comprehensive, nuanced picture of the union's potential.`,
-        offerings: [
-            { name: 'Ashtakoot Guna Milan', duration: 'Written', price: '₹999' },
-            { name: 'Comprehensive Compatibility Report', duration: '75 min', price: '₹2,500' },
-            { name: 'Mangal Dosha Analysis', duration: '45 min', price: '₹1,200' },
-            { name: 'Post-Marriage Guidance Session', duration: '60 min', price: '₹1,500' },
-            { name: 'Auspicious Wedding Date (Muhurta)', duration: '60 min', price: '₹1,800' },
-        ],
-        benefits: [
-            'Assess long-term emotional and physical compatibility',
-            'Identify and remedy doshas before marriage',
-            "Understand each partner's karmic strengths",
-            'Choose the most auspicious date for your wedding',
-        ],
-    },
+    //{
+    //    id: 'tarot',
+    //    icon: '☽',
+    //    label: 'Tarot & Oracle',
+    //    tagline: 'The cards reflect what the heart already knows',
+    //    gradient: 'linear-gradient(135deg, rgba(245,158,11,0.18), rgba(252,211,77,0.05))',
+    //    accentColor: '#fbbf24',
+    //    glowColor: 'rgba(245,158,11,0.4)',
+    //    borderHover: 'rgba(252,211,77,0.5)',
+    //    desc: `Tarot is not fortune-telling — it is a mirror. Our practitioners use the 78-card Rider-Waite
+    //and Thoth decks alongside Vedic oracle systems to illuminate the energies currently active in your
+    //life, helping you make aligned decisions from a place of awareness rather than anxiety. Every reading
+    //is an empowering, forward-looking dialogue between your intuition and the universal archetypes.`,
+    //    offerings: [
+    //        { name: 'General Life Reading (10-card)', duration: '60 min', price: '₹1,200' },
+    //        { name: 'Love & Relationship Spread', duration: '45 min', price: '₹999' },
+    //        { name: 'Career & Purpose Reading', duration: '45 min', price: '₹999' },
+    //        { name: 'Monthly Oracle Forecast', duration: 'Written', price: '₹599' },
+    //        { name: 'Celtic Cross Deep Dive', duration: '75 min', price: '₹1,500' },
+    //    ],
+    //    benefits: [
+    //        'Gain clarity on confusing or stuck life situations',
+    //        'Understand hidden dynamics in relationships',
+    //        'Receive guidance before major decisions',
+    //        'Connect with your own intuitive wisdom',
+    //    ],
+    //},
+    //{
+    //    id: 'kundli',
+    //    icon: '◈',
+    //    label: 'Kundli Matching',
+    //    tagline: 'Celestial compatibility for lifelong union',
+    //    gradient: 'linear-gradient(135deg, rgba(239,68,68,0.18), rgba(252,165,165,0.05))',
+    //    accentColor: '#f87171',
+    //    glowColor: 'rgba(239,68,68,0.35)',
+    //    borderHover: 'rgba(252,165,165,0.5)',
+    //    desc: `Kundli Matching — or Guna Milan — is the Vedic method of evaluating matrimonial compatibility
+    //through a multi-layered analysis of two birth charts. Beyond the popular 36-point Ashtakoot system,
+    //our practitioners examine Navamsa charts, Mangal Dosha, Dasha compatibility, and longevity indicators
+    //to provide a comprehensive, nuanced picture of the union's potential.`,
+    //    offerings: [
+    //        { name: 'Ashtakoot Guna Milan', duration: 'Written', price: '₹999' },
+    //        { name: 'Comprehensive Compatibility Report', duration: '75 min', price: '₹2,500' },
+    //        { name: 'Mangal Dosha Analysis', duration: '45 min', price: '₹1,200' },
+    //        { name: 'Post-Marriage Guidance Session', duration: '60 min', price: '₹1,500' },
+    //        { name: 'Auspicious Wedding Date (Muhurta)', duration: '60 min', price: '₹1,800' },
+    //    ],
+    //    benefits: [
+    //        'Assess long-term emotional and physical compatibility',
+    //        'Identify and remedy doshas before marriage',
+    //        "Understand each partner's karmic strengths",
+    //        'Choose the most auspicious date for your wedding',
+    //    ],
+    //},
     {
         id: 'jyotish',
         icon: '☿',

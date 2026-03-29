@@ -2,6 +2,7 @@ import gsap from "gsap";
 import { useRef, useEffect, useState } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 import { PASTEL_COLORS, GLYPHS, GLYPH_COLORS } from "./values";
+import { Link } from 'react-router-dom/cjs/react-router-dom';
 
 function ShootingStar({ id, onDone }) {
     const startX = useRef(`${Math.random() * 80 + 5}%`).current;
@@ -78,8 +79,7 @@ function AmbientRing({ ring }) {
     return <motion.div animate={{ opacity: [0, ring.peakOpacity, ring.peakOpacity * 0.5, 0], scale: [0.9, 1.05, 0.9], rotate: [0, ring.spin] }} transition={{ duration: ring.duration, delay: ring.delay, repeat: Infinity, ease: 'easeInOut' }} style={{ position: 'absolute', top: ring.top, left: ring.left, width: `${ring.size}px`, height: `${ring.size}px`, borderRadius: '50%', border: `1.5px solid ${resolveColor(ring.colorTemplate, ring.peakOpacity)}`, boxShadow: `0 0 ${ring.size * 0.08}px ${resolveColor(ring.colorTemplate, ring.peakOpacity * 0.5)}`, pointerEvents: 'none', willChange: 'transform, opacity', transform: 'translate(-50%, -50%)' }} />;
 }
 
-//eslint-disable-next-line
-function ShootingArc({ id, onDone }) {
+export function ShootingArc({ id, onDone }) {
     const startX = useRef(`${randomBetween(5, 80)}%`).current;
     const startY = useRef(`${randomBetween(5, 40)}%`).current;
     const angleDeg = useRef(randomBetween(20, 55)).current;
@@ -198,7 +198,9 @@ export function ServiceCard({ service, index }) {
             <div style={{ fontSize: '2.2rem', marginBottom: '1rem', filter: 'drop-shadow(0 4px 10px rgba(167,139,250,0.35))' }}>{service.icon}</div>
             <h3 style={{ color: '#2d2438', fontSize: '1.15rem', fontWeight: 700, marginBottom: '0.6rem', letterSpacing: '0.02em' }}>{service.title}</h3>
             <p style={{ color: '#6b5c8a', fontSize: '0.875rem', lineHeight: 1.75 }}>{service.desc}</p>
-            <motion.div whileHover={{ x: 4 }} style={{ marginTop: '1.25rem', color: '#7c5cbf', fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.3rem', width: 'fit-content' }}>Learn more <span>→</span></motion.div>
+            <Link to='/services'>
+                <motion.div whileHover={{ x: 4 }} style={{ marginTop: '1.25rem', color: '#7c5cbf', fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.3rem', width: 'fit-content' }}>Learn more <span>→</span></motion.div>
+            </Link>
         </motion.div>
     );
 }
