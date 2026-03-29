@@ -3,9 +3,257 @@ import { useEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CelestialField, SectionLabel } from './widgets';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { VALUES, TEAM, MILESTONES, WHATSAPP_URL } from './values';
+import { VALUES, TEAM, MILESTONES, WHATSAPP_URL, GRAHAS, DIRECTIONS, CHAKRAS } from './values';
 
 gsap.registerPlugin(ScrollTrigger);
+
+function GrahaStrip() {
+    const ref = useRef(null);
+    useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+        const ctx = gsap.context(() => {
+            gsap.to('.graha-track', {
+                xPercent: -50,
+                duration: 30,
+                repeat: -1,
+                ease: 'none',
+            });
+            gsap.fromTo('.graha-card',
+                { opacity: 0, y: 20 },
+                {
+                    opacity: 1, y: 0, stagger: 0.08, duration: 0.6, ease: 'power3.out',
+                    scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play reset play reset' },
+                }
+            );
+            gsap.utils.toArray('.graha-symbol').forEach((sym, i) => {
+                gsap.to(sym, {
+                    rotate: 360,
+                    duration: 20 + i * 4,
+                    repeat: -1,
+                    ease: 'none',
+                    transformOrigin: '50% 50%',
+                });
+            });
+        }, el);
+        return () => ctx.revert();
+    }, []);
+
+    const doubled = [...GRAHAS, ...GRAHAS];
+
+    return (
+        <section ref={ref} style={{ padding: '5rem 0', background: 'linear-gradient(180deg, rgba(245,240,255,0.3), rgba(240,245,255,0.5), rgba(245,240,255,0.3))', borderTop: '1px solid rgba(167,139,250,0.12)', borderBottom: '1px solid rgba(167,139,250,0.12)', overflow: 'hidden' }}>
+            <div style={{ textAlign: 'center', marginBottom: '2.5rem', padding: '0 1.5rem' }}>
+                <SectionLabel>Jyotish · The Nine Planets</SectionLabel>
+                <h3 style={{ fontSize: 'clamp(1.3rem, 3vw, 2rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", background: 'linear-gradient(135deg, #1e3a5f, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>The Grahas — Celestial Influences on Your Life</h3>
+            </div>
+            <div style={{ overflow: 'hidden' }}>
+                <div className="graha-track" style={{ display: 'flex', gap: '1.25rem', width: 'max-content', padding: '0.5rem 0.625rem' }}>
+                    {doubled.map((g, i) => (
+                        <div key={i} className="graha-card" style={{ flexShrink: 0, width: '130px', padding: '1.5rem 1rem', borderRadius: '18px', background: '#ffffff', border: '1.5px solid rgba(167,139,250,0.15)', boxShadow: '0 4px 18px rgba(124,92,191,0.05)', textAlign: 'center' }}>
+                            <div className="graha-symbol" style={{ fontSize: '2rem', color: g.color, marginBottom: '0.5rem', display: 'block', filter: `drop-shadow(0 2px 8px ${g.color}66)` }}>{g.symbol}</div>
+                            <div style={{ color: '#1e3a5f', fontWeight: 700, fontSize: '0.88rem', fontFamily: "'Cormorant Garamond', serif" }}>{g.name}</div>
+                            <div style={{ color: '#7a94b0', fontSize: '0.7rem', fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: '0.15rem' }}>{g.ruler}</div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function VastuCompass() {
+    const ref = useRef(null);
+    useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+        const ctx = gsap.context(() => {
+            gsap.to('.vastu-outer-ring', {
+                rotation: 360,
+                duration: 80,
+                repeat: -1,
+                ease: 'none',
+                transformOrigin: '50% 50%',
+            });
+            gsap.to('.vastu-inner-ring', {
+                rotation: -360,
+                duration: 55,
+                repeat: -1,
+                ease: 'none',
+                transformOrigin: '50% 50%',
+            });
+            gsap.to('.vastu-centre', {
+                scale: 1.1,
+                opacity: 0.85,
+                duration: 3.5,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut',
+                transformOrigin: '50% 50%',
+            });
+            gsap.fromTo('.vastu-dir',
+                { opacity: 0, scale: 0.7 },
+                {
+                    opacity: 1, scale: 1, stagger: 0.07, duration: 0.55, ease: 'back.out(1.6)',
+                    scrollTrigger: { trigger: el, start: 'top 82%', toggleActions: 'play reset play reset' },
+                }
+            );
+            gsap.fromTo('.vastu-text-reveal',
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1, y: 0, stagger: 0.1, duration: 0.75, ease: 'power3.out',
+                    scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play reset play reset' },
+                }
+            );
+            gsap.fromTo('.vastu-bar-fill',
+                { scaleX: 0 },
+                {
+                    scaleX: 1, stagger: 0.1, duration: 0.8, ease: 'power3.out',
+                    transformOrigin: 'left center',
+                    scrollTrigger: { trigger: '.vastu-bars', start: 'top 85%', toggleActions: 'play reset play reset' },
+                }
+            );
+        }, el);
+        return () => ctx.revert();
+    }, []);
+
+    const R = 130;
+    return (
+        <section ref={ref} style={{ padding: '7rem 1.5rem', background: '#fdf9ff' }}>
+            <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '5rem', alignItems: 'center' }}>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <div style={{ position: 'relative', width: '340px', height: '340px' }}>
+                            <svg width="340" height="340" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ overflow: 'visible', position: 'absolute', inset: 0 }}>
+                                <circle className="vastu-outer-ring" cx="170" cy="170" r="158" stroke="rgba(167,139,250,0.2)" strokeWidth="1.5" strokeDasharray="4 10" />
+                                <circle cx="170" cy="170" r="130" stroke="rgba(104,150,200,0.18)" strokeWidth="1" />
+                                <g className="vastu-inner-ring">
+                                    <circle cx="170" cy="170" r="96" stroke="rgba(124,92,191,0.22)" strokeWidth="1" strokeDasharray="2 6" />
+                                    {[0, 45, 90, 135, 180, 225, 270, 315].map((deg, i) => <line key={i} x1="170" y1="170" x2={170 + 96 * Math.sin((deg * Math.PI) / 180)} y2={170 - 96 * Math.cos((deg * Math.PI) / 180)} stroke="rgba(167,139,250,0.15)" strokeWidth="1" />)}
+                                </g>
+                                {DIRECTIONS.map((d) => {
+                                    const rad = (d.deg * Math.PI) / 180;
+                                    const x = 170 + R * Math.sin(rad);
+                                    const y = 170 - R * Math.cos(rad);
+                                    return (
+                                        <g key={d.label} className="vastu-dir">
+                                            <circle cx={x} cy={y} r="18" fill={`${d.color}18`} stroke={`${d.color}55`} strokeWidth="1" />
+                                            <text x={x} y={y + 5} textAnchor="middle" fontSize="11" fontWeight="700" fill={d.color} fontFamily="Inter, sans-serif">{d.label}</text>
+                                        </g>
+                                    );
+                                })}
+                                <g className="vastu-centre">
+                                    <circle cx="170" cy="170" r="38" fill="rgba(167,139,250,0.08)" stroke="rgba(167,139,250,0.3)" strokeWidth="1.5" />
+                                    <circle cx="170" cy="170" r="22" fill="rgba(167,139,250,0.12)" stroke="rgba(167,139,250,0.4)" strokeWidth="1" />
+                                    <text x="170" y="175" textAnchor="middle" fontSize="22" fill="rgba(124,92,191,0.8)">⌂</text>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="vastu-text-reveal">
+                            <SectionLabel>Vastu Shastra</SectionLabel>
+                        </div>
+                        <h3 className="vastu-text-reveal" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", background: 'linear-gradient(135deg, #1e3a5f, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', lineHeight: 1.25, marginBottom: '1rem' }}>Your space holds an energy blueprint. Vastu helps you align it.</h3>
+                        <p className="vastu-text-reveal" style={{ color: '#4a6080', fontSize: '0.93rem', lineHeight: 1.9, marginBottom: '1.75rem' }}>Each of the eight directions carries a distinct elemental energy. When your home or workspace is aligned with these forces, clarity and flow follow naturally.</p>
+                        <div className="vastu-bars" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                            {DIRECTIONS.slice(0, 5).map((d) => (
+                                <div key={d.label} style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+                                    <div style={{ width: '32px', flexShrink: 0, color: d.color, fontSize: '0.95rem', fontWeight: 700, textAlign: 'center' }}>{d.label}</div>
+                                    <div style={{ flex: 1, height: '6px', borderRadius: '6px', background: 'rgba(167,139,250,0.1)', overflow: 'hidden' }}>
+                                        <div className="vastu-bar-fill" style={{ height: '100%', width: `${55 + Math.random() * 40}%`, borderRadius: '6px', background: `linear-gradient(90deg, ${d.color}99, ${d.color}dd)` }} />
+                                    </div>
+                                    <div style={{ width: '110px', flexShrink: 0, color: '#7a94b0', fontSize: '0.72rem', fontWeight: 500, letterSpacing: '0.04em' }}>{d.energy}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function ChakraSection() {
+    const ref = useRef(null);
+    useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+        const ctx = gsap.context(() => {
+            gsap.fromTo('.chakra-node',
+                { opacity: 0, x: -40 },
+                {
+                    opacity: 1, x: 0, stagger: 0.12, duration: 0.65, ease: 'power3.out',
+                    scrollTrigger: { trigger: el, start: 'top 82%', toggleActions: 'play reset play reset' },
+                }
+            );
+            gsap.utils.toArray('.chakra-ring').forEach((ring, i) => {
+                gsap.to(ring, {
+                    scale: 1.35,
+                    opacity: 0,
+                    duration: 1.6 + i * 0.15,
+                    repeat: -1,
+                    ease: 'power2.out',
+                    transformOrigin: '50% 50%',
+                    delay: i * 0.22,
+                });
+            });
+            gsap.fromTo('.chakra-spine',
+                { scaleY: 0, transformOrigin: 'top center' },
+                {
+                    scaleY: 1, duration: 1.2, ease: 'power3.inOut',
+                    scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play reset play reset' },
+                }
+            );
+            gsap.fromTo('.chakra-text-col',
+                { opacity: 0, x: 40 },
+                {
+                    opacity: 1, x: 0, duration: 0.9, ease: 'power3.out',
+                    scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play reset play reset' },
+                }
+            );
+        }, el);
+        return () => ctx.revert();
+    }, []);
+
+    return (
+        <section ref={ref} style={{ padding: '7rem 1.5rem', background: 'linear-gradient(180deg, rgba(245,240,255,0.4), transparent, rgba(245,240,255,0.4))' }}>
+            <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+                <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                    <SectionLabel>Energy & Alignment</SectionLabel>
+                    <h3 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.4rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", background: 'linear-gradient(135deg, #1e3a5f, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '0.75rem' }}>The Seven Energy Centres</h3>
+                    <p style={{ color: '#7a94b0', fontSize: '0.93rem', maxWidth: '400px', margin: '0 auto', lineHeight: 1.8 }}>Occult sciences work with the body's subtle energy architecture — understanding this is key to real alignment.</p>
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0 }}>
+                            <div className="chakra-spine" style={{ position: 'absolute', left: '50%', top: '20px', bottom: '20px', width: '2px', background: 'linear-gradient(180deg, rgba(155,89,182,0.5), rgba(192,57,43,0.5))', transform: 'translateX(-50%)', zIndex: 0 }} />
+                            {CHAKRAS.map((c, i) => (
+                                <div key={c.name} className="chakra-node" style={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '52px', height: '52px', marginBottom: i < CHAKRAS.length - 1 ? '1.5rem' : 0 }}>
+                                    <div className="chakra-ring" style={{ position: 'absolute', inset: '-4px', borderRadius: '50%', border: `1.5px solid ${c.color}`, opacity: 0.6 }} />
+                                    <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: `radial-gradient(circle, ${c.color}cc, ${c.color}66)`, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: `0 0 16px ${c.color}55`, border: `1.5px solid ${c.color}88` }}>
+                                        <span style={{ color: '#fff', fontSize: '0.75rem', fontWeight: 800 }}>{c.number}</span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="chakra-text-col" style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
+                        {CHAKRAS.map((c) => (
+                            <div key={c.name} style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                                <div style={{ width: '10px', height: '10px', borderRadius: '50%', flexShrink: 0, background: c.color, boxShadow: `0 0 8px ${c.color}88` }} />
+                                <div>
+                                    <span style={{ color: '#1e3a5f', fontWeight: 700, fontSize: '0.93rem', fontFamily: "'Cormorant Garamond', serif" }}>{c.name}</span>
+                                    <span style={{ color: '#7a94b0', fontSize: '0.78rem', marginLeft: '0.5rem' }}>— {c.sanskrit}</span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
 
 function TeamCard({ member, index }) {
     const ref = useRef(null);
@@ -15,7 +263,11 @@ function TeamCard({ member, index }) {
         const ctx = gsap.context(() => {
             gsap.fromTo(el,
                 { opacity: 0, y: 60 },
-                { delay: index * 0.1, scrollTrigger: { trigger: el, start: 'top 88%' }, opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }
+                {
+                    delay: index * 0.1,
+                    scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play reset play reset' },
+                    opacity: 1, y: 0, duration: 0.75, ease: 'power3.out',
+                }
             );
         });
         return () => ctx.revert();
@@ -26,16 +278,16 @@ function TeamCard({ member, index }) {
             <div style={{ padding: '2rem 2rem 1.5rem', background: 'linear-gradient(135deg, rgba(245,240,255,0.9), rgba(255,255,255,0.95))', borderBottom: '1px solid rgba(167,139,250,0.12)', display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
                 <div style={{ width: '65px', height: '65px', borderRadius: '50%', flexShrink: 0, background: member.gradient, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 800, fontSize: '1.5rem', boxShadow: '0 4px 18px rgba(124,92,191,0.25)' }}>{member.avatar}</div>
                 <div>
-                    <div style={{ color: '#2d2438', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.2rem' }}>{member.name}</div>
+                    <div style={{ color: '#1e3a5f', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.2rem' }}>{member.name}</div>
                     <div style={{ color: '#7c5cbf', fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.05em' }}>{member.role}</div>
-                    <div style={{ marginTop: '0.35rem', display: 'inline-block', padding: '0.15rem 0.65rem', borderRadius: '20px', background: 'rgba(167,139,250,0.1)', border: '1px solid rgba(167,139,250,0.2)', color: '#9585b0', fontSize: '0.72rem', fontWeight: 500 }}>{member.exp}</div>
+                    <div style={{ marginTop: '0.35rem', display: 'inline-block', padding: '0.15rem 0.65rem', borderRadius: '20px', background: 'rgba(167,139,250,0.1)', border: '1px solid rgba(167,139,250,0.2)', color: '#7a94b0', fontSize: '0.72rem', fontWeight: 500 }}>{member.exp}</div>
                 </div>
             </div>
             <div style={{ padding: '1.5rem 2rem 2rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', color: '#7c5cbf', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.06em' }}>
                     <span style={{ fontSize: '0.7rem' }}>◈</span> {member.speciality}
                 </div>
-                <p style={{ color: '#6b5c8a', fontSize: '0.875rem', lineHeight: 1.8 }}>{member.bio}</p>
+                <p style={{ color: '#4a6080', fontSize: '0.875rem', lineHeight: 1.8 }}>{member.bio}</p>
                 <motion.a href={WHATSAPP_URL} target="_blank" rel="noreferrer" whileHover={{ scale: 1.03, background: 'rgba(167,139,250,0.15)', boxShadow: '0 4px 20px rgba(124,92,191,0.18)' }} whileTap={{ scale: 0.97 }} style={{ marginTop: '1.5rem', width: '100%', padding: '0.65rem', background: 'rgba(167,139,250,0.08)', border: '1.5px solid rgba(167,139,250,0.25)', borderRadius: '10px', color: '#7c5cbf', fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer', letterSpacing: '0.04em', transition: 'background 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', textDecoration: 'none' }}>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg> Book a Session on WhatsApp
                 </motion.a>
@@ -48,8 +300,8 @@ function TimelineContent({ milestone }) {
     return (
         <div>
             <div style={{ display: 'inline-block', padding: '0.2rem 0.75rem', borderRadius: '20px', background: 'rgba(167,139,250,0.1)', border: '1px solid rgba(167,139,250,0.25)', color: '#7c5cbf', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.08em', marginBottom: '0.6rem' }}>{milestone.year}</div>
-            <div style={{ color: '#2d2438', fontWeight: 700, fontSize: '1rem', marginBottom: '0.4rem' }}>{milestone.title}</div>
-            <div style={{ color: '#6b5c8a', fontSize: '0.85rem', lineHeight: 1.75, maxWidth: '260px', marginLeft: 'auto' }}>{milestone.desc}</div>
+            <div style={{ color: '#1e3a5f', fontWeight: 700, fontSize: '1rem', marginBottom: '0.4rem' }}>{milestone.title}</div>
+            <div style={{ color: '#4a6080', fontSize: '0.85rem', lineHeight: 1.75, maxWidth: '260px', marginLeft: 'auto' }}>{milestone.desc}</div>
         </div>
     );
 }
@@ -65,12 +317,18 @@ function TimelineItem({ milestone, index, isLast }) {
         const ctx = gsap.context(() => {
             gsap.fromTo(el,
                 { opacity: 0, x: isEven ? -50 : 50 },
-                { opacity: 1, x: 0, duration: 0.75, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 85%' } }
+                {
+                    opacity: 1, x: 0, duration: 0.75, ease: 'power3.out',
+                    scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play reset play reset' },
+                }
             );
             if (lineRef.current) {
                 gsap.fromTo(lineRef.current,
                     { scaleY: 0, transformOrigin: 'top' },
-                    { scaleY: 1, duration: 0.6, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 85%' } }
+                    {
+                        scaleY: 1, duration: 0.6, ease: 'power2.out',
+                        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play reset play reset' },
+                    }
                 );
             }
         });
@@ -103,7 +361,9 @@ export default function About() {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            gsap.timeline({ defaults: { ease: 'power3.out' } }).fromTo(titleRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, delay: 0.2 }).fromTo(subtitleRef.current, { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.5');
+            gsap.timeline({ defaults: { ease: 'power3.out' } })
+                .fromTo(titleRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, delay: 0.2 })
+                .fromTo(subtitleRef.current, { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.5');
         }, heroRef);
         return () => ctx.revert();
     }, []);
@@ -113,7 +373,10 @@ export default function About() {
             gsap.utils.toArray('.reveal-up').forEach((el) => {
                 gsap.fromTo(el,
                     { opacity: 0, y: 45 },
-                    { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } }
+                    {
+                        opacity: 1, y: 0, duration: 0.85, ease: 'power3.out',
+                        scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play reset play reset' },
+                    }
                 );
             });
         });
@@ -121,22 +384,20 @@ export default function About() {
     }, []);
 
     return (
-        <div style={{ background: '#faf9f7', minHeight: '100vh', color: '#2d2438', fontFamily: "'Inter', sans-serif", overflowX: 'hidden' }}>
+        <div style={{ background: '#faf9f7', minHeight: '100vh', color: '#1e3a5f', fontFamily: "'Inter', sans-serif", overflowX: 'hidden' }}>
             <section ref={heroRef} style={{ position: 'relative', minHeight: '90vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', background: 'linear-gradient(160deg, #fdf8ff 0%, #f5f0ff 40%, #fff8f5 100%)' }}>
-                {/*<StarField/> */}<CelestialField />
+                <CelestialField />
                 <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '800px', height: '500px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(167,139,250,0.12) 0%, rgba(216,180,254,0.05) 50%, transparent 70%)', pointerEvents: 'none' }} />
                 <div style={{ position: 'absolute', bottom: '5%', right: '-8%', width: '360px', height: '360px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(251,207,232,0.2) 0%, transparent 70%)', pointerEvents: 'none' }} />
                 <div style={{ position: 'absolute', top: '15%', left: '-6%', width: '280px', height: '280px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(186,230,253,0.18) 0%, transparent 70%)', pointerEvents: 'none' }} />
                 <motion.div style={{ opacity: heroOpacity, y: heroY, position: 'relative', zIndex: 2, textAlign: 'center', padding: '9rem 1.5rem 4rem' }}>
                     <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, ease: 'backOut' }} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.4rem 1.2rem', borderRadius: '30px', border: '1px solid rgba(167,139,250,0.35)', background: 'rgba(167,139,250,0.08)', color: '#7c5cbf', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '1.75rem' }}>✦ My Story</motion.div>
                     <h1 ref={titleRef} style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.02em', fontFamily: "'Cormorant Garamond', serif", marginBottom: '1.25rem' }}>
-                        <span style={{ background: 'linear-gradient(135deg, #3d2b6b 30%, #7c5cbf 70%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Logic meets intuition.</span>
+                        <span style={{ background: 'linear-gradient(135deg, #1e3a5f 30%, #7c5cbf 70%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Logic meets intuition.</span>
                         <br />
-                        <span style={{ background: 'linear-gradient(135deg, #a78bfa, #c4b5fd, #f0abfc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Science meets the stars.</span>
+                        <span style={{ background: 'linear-gradient(135deg, #a78bfa, #c4b5fd, #6896c8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Science meets the stars.</span>
                     </h1>
-                    <p ref={subtitleRef} style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', lineHeight: 1.85, color: '#6b5c8a', maxWidth: '560px', margin: '0 auto', fontWeight: 400 }}>
-                        {/* Hi, I'm <strong style={{ color: '#3d2b6b' }}>Puja</strong>.  */}
-                        My work lies at the intersection of logic and intuition — where occult sciences are not just believed, but understood, applied, and experienced.</p>
+                    <p ref={subtitleRef} style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', lineHeight: 1.85, color: '#4a6080', maxWidth: '560px', margin: '0 auto', fontWeight: 400 }}>My work lies at the intersection of logic and intuition — where occult sciences are not just believed, but understood, applied, and experienced.</p>
                 </motion.div>
             </section>
             <section style={{ padding: '6rem 1.5rem' }}>
@@ -157,8 +418,8 @@ export default function About() {
                     </div>
                     <div className="reveal-up">
                         <SectionLabel>My Approach</SectionLabel>
-                        <h2 style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.6rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", lineHeight: 1.2, marginBottom: '1.25rem', background: 'linear-gradient(135deg, #3d2b6b 40%, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Structured. Logical. Rooted in Real Life.</h2>
-                        <p style={{ color: '#6b5c8a', fontSize: '0.95rem', lineHeight: 1.9, marginBottom: '1.5rem' }}>I don't believe in creating dependency through vague predictions. Whether it's Numerology, Vastu, or Jyotish — the goal is always the same: help you understand what's happening and what to do next.</p>
+                        <h2 style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.6rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", lineHeight: 1.2, marginBottom: '1.25rem', background: 'linear-gradient(135deg, #1e3a5f 40%, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Structured. Logical. Rooted in Real Life.</h2>
+                        <p style={{ color: '#4a6080', fontSize: '0.95rem', lineHeight: 1.9, marginBottom: '1.5rem' }}>I don't believe in creating dependency through vague predictions. Whether it's Numerology, Vastu, or Jyotish — the goal is always the same: help you understand what's happening and what to do next.</p>
                         {[
                             { icon: '◈', text: 'Structured and logical — every insight has a reason behind it' },
                             { icon: '△', text: 'Rooted in real-life application, not textbook theory' },
@@ -166,7 +427,7 @@ export default function About() {
                         ].map((p) => (
                             <div key={p.text} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.85rem', marginBottom: '1rem' }}>
                                 <div style={{ width: '32px', height: '32px', borderRadius: '8px', flexShrink: 0, background: 'rgba(167,139,250,0.1)', border: '1px solid rgba(167,139,250,0.22)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#7c5cbf', fontSize: '0.85rem', marginTop: '0.1rem' }}>{p.icon}</div>
-                                <p style={{ color: '#6b5c8a', fontSize: '0.9rem', lineHeight: 1.75, margin: 0 }}>{p.text}</p>
+                                <p style={{ color: '#4a6080', fontSize: '0.9rem', lineHeight: 1.75, margin: 0 }}>{p.text}</p>
                             </div>
                         ))}
                     </div>
@@ -176,7 +437,7 @@ export default function About() {
                 <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                     <div className="reveal-up" style={{ textAlign: 'center', marginBottom: '3rem' }}>
                         <SectionLabel>Experience & Reach</SectionLabel>
-                        <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.4rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", background: 'linear-gradient(135deg, #3d2b6b, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Trusted Across the World</h2>
+                        <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.4rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", background: 'linear-gradient(135deg, #1e3a5f, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Trusted Across the World</h2>
                     </div>
                     <div className="reveal-up" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
                         {[
@@ -186,53 +447,56 @@ export default function About() {
                         ].map((s) => (
                             <div key={s.label} style={{ textAlign: 'center', padding: '2rem', background: '#ffffff', border: '1.5px solid rgba(167,139,250,0.18)', borderRadius: '18px', boxShadow: '0 4px 18px rgba(124,92,191,0.05)' }}>
                                 <div style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: "'Cormorant Garamond', serif", letterSpacing: '-0.02em', lineHeight: 1.1 }}>{s.value}</div>
-                                <div style={{ color: '#9585b0', fontSize: '0.82rem', fontWeight: 500, letterSpacing: '0.06em', marginTop: '0.4rem', textTransform: 'uppercase' }}>{s.label}</div>
+                                <div style={{ color: '#7a94b0', fontSize: '0.82rem', fontWeight: 500, letterSpacing: '0.06em', marginTop: '0.4rem', textTransform: 'uppercase' }}>{s.label}</div>
                             </div>
                         ))}
                     </div>
                     <div className="reveal-up" style={{ textAlign: 'center' }}>
-                        <div style={{ color: '#9585b0', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Clients from</div>
+                        <div style={{ color: '#7a94b0', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Clients from</div>
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', justifyContent: 'center' }}>
                             {['India', 'USA', 'UK', 'Croatia', 'Germany', 'France', 'Mongolia', 'Dubai'].map((country) => <span key={country} style={{ padding: '0.3rem 0.9rem', borderRadius: '20px', background: 'rgba(167,139,250,0.08)', border: '1px solid rgba(167,139,250,0.2)', color: '#7c5cbf', fontSize: '0.82rem', fontWeight: 500 }}>{country}</span>)}
                         </div>
                     </div>
                 </div>
             </section>
+            <GrahaStrip />
             <section style={{ padding: '6rem 1.5rem', background: 'linear-gradient(180deg, transparent, rgba(245,240,255,0.5), transparent)' }}>
                 <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
                     <div className="reveal-up" style={{ textAlign: 'center', marginBottom: '4rem' }}>
                         <SectionLabel>My Philosophy</SectionLabel>
-                        <h2 style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", background: 'linear-gradient(135deg, #3d2b6b, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '0.75rem' }}>What Every Session Is Built On</h2>
-                        <p style={{ color: '#9585b0', fontSize: '0.95rem', maxWidth: '480px', margin: '0 auto', lineHeight: 1.75 }}>My goal is not to tell you what will happen. It is to help you understand your patterns, make better decisions, and move forward with clarity and confidence.</p>
+                        <h2 style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", background: 'linear-gradient(135deg, #1e3a5f, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '0.75rem' }}>What Every Session Is Built On</h2>
+                        <p style={{ color: '#7a94b0', fontSize: '0.95rem', maxWidth: '480px', margin: '0 auto', lineHeight: 1.75 }}>My goal is not to tell you what will happen. It is to help you understand your patterns, make better decisions, and move forward with clarity and confidence.</p>
                     </div>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: '1.5rem' }}>
                         {VALUES.map((v, i) => (
                             <motion.div key={v.title} className="reveal-up" whileHover={{ y: -8, borderColor: 'rgba(167,139,250,0.4)', boxShadow: '0 20px 50px rgba(124,92,191,0.1)' }} transition={{ duration: 0.3, ease: 'easeOut' }} style={{ background: '#ffffff', border: '1.5px solid rgba(167,139,250,0.18)', borderRadius: '20px', padding: '2rem', textAlign: 'center', willChange: 'transform', boxShadow: '0 4px 20px rgba(124,92,191,0.05)' }}>
                                 <motion.div animate={{ opacity: [0.6, 1, 0.6] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: i * 0.4 }} style={{ fontSize: '2rem', marginBottom: '1rem', filter: 'drop-shadow(0 4px 8px rgba(167,139,250,0.3))' }}>{v.icon}</motion.div>
-                                <div style={{ color: '#2d2438', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.6rem' }}>{v.title}</div>
-                                <p style={{ color: '#6b5c8a', fontSize: '0.85rem', lineHeight: 1.8 }}>{v.desc}</p>
+                                <div style={{ color: '#1e3a5f', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.6rem' }}>{v.title}</div>
+                                <p style={{ color: '#4a6080', fontSize: '0.85rem', lineHeight: 1.8 }}>{v.desc}</p>
                             </motion.div>
                         ))}
                     </div>
                 </div>
             </section>
+            <VastuCompass />
             <section style={{ padding: '7rem 1.5rem' }}>
                 <div style={{ maxWidth: '900px', margin: '0 auto' }}>
                     <div className="reveal-up" style={{ textAlign: 'center', marginBottom: '5rem' }}>
                         <SectionLabel>My Journey</SectionLabel>
-                        <h2 style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", background: 'linear-gradient(135deg, #3d2b6b, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>A Decade of Learning & Practice</h2>
+                        <h2 style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", background: 'linear-gradient(135deg, #1e3a5f, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>A Decade of Learning & Practice</h2>
                     </div>
                     <div className="reveal-up">
                         {MILESTONES.map((m, i) => <TimelineItem key={m.year} milestone={m} index={i} isLast={i === MILESTONES.length - 1} />)}
                     </div>
                 </div>
             </section>
+            <ChakraSection />
             <section style={{ padding: '7rem 1.5rem', background: 'linear-gradient(180deg, transparent, rgba(245,240,255,0.6), transparent)' }}>
                 <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
                     <div className="reveal-up" style={{ textAlign: 'center', marginBottom: '4rem' }}>
                         <SectionLabel>My Practitioners</SectionLabel>
-                        <h2 style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", background: 'linear-gradient(135deg, #3d2b6b, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '0.75rem' }}>The People I Practice With</h2>
-                        <p style={{ color: '#9585b0', fontSize: '0.95rem', maxWidth: '500px', margin: '0 auto', lineHeight: 1.75 }}>Each practitioner was chosen for one reason above all others — the depth of care they bring to every person who sits across from them.</p>
+                        <h2 style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", background: 'linear-gradient(135deg, #1e3a5f, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '0.75rem' }}>The People I Practice With</h2>
+                        <p style={{ color: '#7a94b0', fontSize: '0.95rem', maxWidth: '500px', margin: '0 auto', lineHeight: 1.75 }}>Each practitioner was chosen for one reason above all others — the depth of care they bring to every person who sits across from them.</p>
                     </div>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
                         {TEAM.map((m, i) => <TeamCard key={m.name} member={m} index={i} />)}
@@ -243,10 +507,10 @@ export default function About() {
                 <div className="reveal-up" style={{ maxWidth: '760px', margin: '0 auto' }}>
                     <motion.div whileHover={{ boxShadow: '0 30px 80px rgba(124,92,191,0.15)' }} transition={{ duration: 0.3 }} style={{ background: 'linear-gradient(135deg, rgba(245,240,255,0.95), rgba(255,248,255,0.98))', border: '1.5px solid rgba(167,139,250,0.25)', borderRadius: '28px', padding: 'clamp(2.5rem, 5vw, 4rem)', textAlign: 'center', position: 'relative', overflow: 'hidden', boxShadow: '0 20px 60px rgba(124,92,191,0.07)' }}>
                         <div style={{ position: 'absolute', top: '-70px', right: '-60px', width: '220px', height: '220px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(196,181,253,0.28), transparent 70%)', pointerEvents: 'none' }} />
-                        <div style={{ position: 'absolute', bottom: '-55px', left: '-40px', width: '200px', height: '200px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(251,207,232,0.28), transparent 70%)', pointerEvents: 'none' }} />
+                        <div style={{ position: 'absolute', bottom: '-55px', left: '-40px', width: '200px', height: '200px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(186,230,253,0.25), transparent 70%)', pointerEvents: 'none' }} />
                         <motion.div animate={{ rotate: [0, 15, -15, 0] }} transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }} style={{ fontSize: '3rem', marginBottom: '1rem', display: 'inline-block', filter: 'drop-shadow(0 4px 10px rgba(167,139,250,0.35))' }}>✦</motion.div>
-                        <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.4rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", background: 'linear-gradient(135deg, #3d2b6b, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '1rem' }}>Ready to Get Clarity?</h2>
-                        <p style={{ color: '#6b5c8a', fontSize: '1rem', lineHeight: 1.8, maxWidth: '420px', margin: '0 auto 2.5rem' }}>Start with a conversation. Share what's on your mind and I'll guide you toward the right consultation — no pressure, no vague promises.</p>
+                        <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.4rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", background: 'linear-gradient(135deg, #1e3a5f, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '1rem' }}>Ready to Get Clarity?</h2>
+                        <p style={{ color: '#4a6080', fontSize: '1rem', lineHeight: 1.8, maxWidth: '420px', margin: '0 auto 2.5rem' }}>Start with a conversation. Share what's on your mind and I'll guide you toward the right consultation — no pressure, no vague promises.</p>
                         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                             <motion.a href={WHATSAPP_URL} target="_blank" rel="noreferrer" whileHover={{ scale: 1.04, boxShadow: '0 8px 36px rgba(124,92,191,0.4)' }} whileTap={{ scale: 0.97 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.85rem 2.2rem', background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)', borderRadius: '50px', color: '#fff', fontSize: '0.95rem', fontWeight: 700, textDecoration: 'none', letterSpacing: '0.04em', boxShadow: '0 4px 20px rgba(124,92,191,0.28)' }}>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg> Chat on WhatsApp to Book

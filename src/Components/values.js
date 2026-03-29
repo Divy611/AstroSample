@@ -1,5 +1,7 @@
 export const WHATSAPP_URL = process.env.REACT_APP_WHATSAPP_REDIRECT_URL;
 
+export const CATEGORIES = ['All', 'Numerology', 'Vastu', 'Jyotish'];
+
 export const SERVICES = [
     {
         icon: '✦',
@@ -217,6 +219,8 @@ export const READINGS = [
         accentColor: '#34d399',
     },
 ];
+
+export const FEATURED = READINGS.filter((r) => r.featured);
 
 export const TEAM = [
     {
@@ -797,4 +801,37 @@ export const GLYPH_COLORS = [
     'rgba(190,24,93,{a})',
     'rgba(99,102,241,{a})',
     'rgba(192,132,252,{a})',
+];
+
+export const GRAHAS = [
+    { symbol: '☉', name: 'Surya', ruler: 'Sun', color: '#e0a020' },
+    { symbol: '☽', name: 'Chandra', ruler: 'Moon', color: '#8aaed4' },
+    { symbol: '♂', name: 'Mangal', ruler: 'Mars', color: '#c94040' },
+    { symbol: '☿', name: 'Budha', ruler: 'Mercury', color: '#4a9e6a' },
+    { symbol: '♃', name: 'Guru', ruler: 'Jupiter', color: '#c8a840' },
+    { symbol: '♀', name: 'Shukra', ruler: 'Venus', color: '#c46090' },
+    { symbol: '♄', name: 'Shani', ruler: 'Saturn', color: '#6070a0' },
+    { symbol: '☊', name: 'Rahu', ruler: "North Node", color: '#8060b0' },
+    { symbol: '☋', name: 'Ketu', ruler: 'South Node', color: '#a07850' },
+];
+
+export const DIRECTIONS = [
+    { label: 'N', deg: 0, element: 'Water', color: '#4a7ab0', energy: 'Career & Path' },
+    { label: 'NE', deg: 45, element: 'Earth', color: '#7c5cbf', energy: 'Wisdom' },
+    { label: 'E', deg: 90, element: 'Wood', color: '#4a9e6a', energy: 'Growth' },
+    { label: 'SE', deg: 135, element: 'Fire', color: '#c94040', energy: 'Wealth' },
+    { label: 'S', deg: 180, element: 'Fire', color: '#c07030', energy: 'Fame' },
+    { label: 'SW', deg: 225, element: 'Earth', color: '#a06030', energy: 'Relationships' },
+    { label: 'W', deg: 270, element: 'Metal', color: '#708090', energy: 'Creativity' },
+    { label: 'NW', deg: 315, element: 'Metal', color: '#5080a0', energy: 'Helpful People' },
+];
+
+export const CHAKRAS = [
+    { name: 'Sahasrara', sanskrit: 'Crown', color: '#9b59b6', symbol: '✦', number: '7' },
+    { name: 'Ajna', sanskrit: 'Third Eye', color: '#5a6abf', symbol: '◈', number: '6' },
+    { name: 'Vishuddha', sanskrit: 'Throat', color: '#3498db', symbol: '△', number: '5' },
+    { name: 'Anahata', sanskrit: 'Heart', color: '#27ae60', symbol: '✦', number: '4' },
+    { name: 'Manipura', sanskrit: 'Solar Plexus', color: '#f39c12', symbol: '◈', number: '3' },
+    { name: 'Svadhishthana', sanskrit: 'Sacral', color: '#e67e22', symbol: '△', number: '2' },
+    { name: 'Muladhara', sanskrit: 'Root', color: '#c0392b', symbol: '✦', number: '1' },
 ];
