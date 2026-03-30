@@ -322,7 +322,7 @@ function ArticleModal({ reading, onClose }) {
     );
 }
 
-function NewsletterStrip() {
+export function NewsletterStrip() {
     const ref = useRef(null);
     const [email, setEmail] = useState('');
     const [submitted, setSubmitted] = useState(false);
