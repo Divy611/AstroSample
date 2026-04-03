@@ -110,7 +110,7 @@ export default function Footer() {
                         <Link to="/" style={{ textDecoration: 'none' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.2rem' }}>
                                 <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px', color: '#fff', boxShadow: '0 4px 14px rgba(124,92,191,0.22)' }}>✦</div>
-                                <span style={{ fontSize: '1.25rem', fontWeight: 700, background: 'linear-gradient(90deg, #3d2b6b, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: "'Cormorant Garamond', serif" }}>Purple Celestia</span>
+                                <span style={{ fontSize: '1.25rem', fontWeight: 700, background: 'linear-gradient(90deg, #3d2b6b, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: "'Cormorant Garamond', serif" }}>The Purple Lady</span>
                             </div>
                         </Link>
                         <p style={{ color: '#6b5c8a', fontSize: '0.875rem', lineHeight: 1.75, maxWidth: '240px' }}>Ancient wisdom meets modern insight. Discover your cosmic path through astrology, numerology &amp; Vastu.</p>
@@ -149,7 +149,7 @@ export default function Footer() {
                 </div>
                 <div style={{ height: '1px', marginBottom: '2rem', background: 'linear-gradient(90deg, transparent, rgba(167,139,250,0.3), transparent)' }} />
                 <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
-                    <p style={{ color: '#9585b0', fontSize: '0.8rem', margin: 0 }}>© {new Date().getFullYear()} Purple Celestia. All rights reserved.</p>
+                    <p style={{ color: '#9585b0', fontSize: '0.8rem', margin: 0 }}>© {new Date().getFullYear()} The Purple Lady. All rights reserved.</p>
                     <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
                         {[
                             { label: 'Privacy Policy', path: '/privacy' },

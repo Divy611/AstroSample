@@ -246,27 +246,8 @@ function JyotishPlanetStrip() {
                 </div>
                 <div className="planet-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))', gap: '1rem' }}>
                     {planets.map((p, i) => (
-                        <motion.div key={p.name} className="planet-card" whileHover={{
-                            y: -10,
-                            boxShadow: `0 20px 40px ${p.glow}`,
-                            borderColor: `${p.color}55`,
-                        }} transition={{ duration: 0.25, ease: 'easeOut' }} style={{
-                            background: 'rgba(255,255,255,0.04)',
-                            border: '1px solid rgba(167,139,250,0.15)',
-                            borderRadius: '18px',
-                            padding: '1.5rem 1rem',
-                            textAlign: 'center',
-                            cursor: 'default',
-                            willChange: 'transform',
-                            backdropFilter: 'blur(8px)',
-                        }}>
-                            <div className="planet-symbol" style={{
-                                fontSize: '2.2rem',
-                                color: p.color,
-                                marginBottom: '0.75rem',
-                                filter: `drop-shadow(0 0 10px ${p.glow})`,
-                                display: 'block',
-                            }}>{p.symbol}</div>
+                        <motion.div key={p.name} className="planet-card" whileHover={{ y: -10, boxShadow: `0 20px 40px ${p.glow}`, borderColor: `${p.color}55` }} transition={{ duration: 0.25, ease: 'easeOut' }} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(167,139,250,0.15)', borderRadius: '18px', padding: '1.5rem 1rem', textAlign: 'center', cursor: 'default', willChange: 'transform', backdropFilter: 'blur(8px)' }}>
+                            <div className="planet-symbol" style={{ fontSize: '2.2rem', color: p.color, marginBottom: '0.75rem', filter: `drop-shadow(0 0 10px ${p.glow})`, display: 'block' }}>{p.symbol}</div>
                             <div style={{ color: 'rgba(220,225,240,0.95)', fontWeight: 700, fontFamily: "'Cormorant Garamond', serif", fontSize: '1rem', marginBottom: '0.25rem' }}>{p.name}</div>
                             <div style={{ color: 'rgba(160,175,200,0.75)', fontSize: '0.72rem', lineHeight: 1.5 }}>{p.role}</div>
                         </motion.div>
@@ -299,29 +280,12 @@ function ServiceGridCard({ service, index, onSelect, isActive }) {
     }, [index]);
 
     return (
-        <motion.div ref={ref} onClick={() => onSelect(service)} whileHover={{
-            y: -10,
-            borderColor: 'rgba(167,139,250,0.45)',
-            boxShadow: `0 20px 56px ${service.glowColor}`,
-            transition: { duration: 0.3, ease: 'easeOut' },
-        }} style={{
-            background: service.gradient,
-            border: `1.5px solid ${isActive ? service.borderHover : 'rgba(167,139,250,0.18)'}`,
-            borderRadius: '22px', padding: '2rem', cursor: 'pointer',
-            willChange: 'transform', position: 'relative', overflow: 'hidden',
-            boxShadow: isActive
+        <motion.div ref={ref} onClick={() => onSelect(service)} whileHover={{ y: -10, borderColor: 'rgba(167,139,250,0.45)', boxShadow: `0 20px 56px ${service.glowColor}`, transition: { duration: 0.3, ease: 'easeOut' } }} style={{
+            background: service.gradient, border: `1.5px solid ${isActive ? service.borderHover : 'rgba(167,139,250,0.18)'}`, borderRadius: '22px', padding: '2rem', cursor: 'pointer', willChange: 'transform', position: 'relative', overflow: 'hidden', boxShadow: isActive
                 ? `0 8px 40px ${service.glowColor}, 0 0 0 1.5px ${service.accentColor}22`
-                : '0 4px 24px rgba(124,92,191,0.06)',
-            transition: 'box-shadow 0.3s, border-color 0.3s',
+                : '0 4px 24px rgba(124,92,191,0.06)', transition: 'box-shadow 0.3s, border-color 0.3s',
         }}>
-            {isActive && (
-                <motion.div layoutId="active-dot" style={{
-                    position: 'absolute', top: '1.2rem', right: '1.2rem',
-                    width: '8px', height: '8px', borderRadius: '50%',
-                    background: service.accentColor,
-                    boxShadow: `0 0 8px ${service.accentColor}`,
-                }} />
-            )}
+            {isActive && <motion.div layoutId="active-dot" style={{ position: 'absolute', top: '1.2rem', right: '1.2rem', width: '8px', height: '8px', borderRadius: '50%', background: service.accentColor, boxShadow: `0 0 8px ${service.accentColor}` }} />}
             <div style={{ fontSize: '2.4rem', marginBottom: '1.1rem', filter: `drop-shadow(0 4px 10px ${service.glowColor})` }}>{service.icon}</div>
             <h3 style={{ color: '#1e3a5f', fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.4rem', letterSpacing: '0.02em' }}>{service.label}</h3>
             <p style={{ color: service.accentColor, fontSize: '0.78rem', fontWeight: 500, fontStyle: 'italic', marginBottom: '0.85rem', opacity: 0.85 }}>{service.tagline}</p>
@@ -354,15 +318,7 @@ function ServiceDetailPanel({ service, onClose }) {
     }, [service.id]);
 
     return (
-        <motion.div ref={panelRef} key={service.id} variants={panelVariants} initial="hidden" animate="visible" exit="exit" style={{
-            background: service.gradient,
-            border: `1.5px solid ${service.borderHover}`,
-            borderRadius: '28px',
-            padding: 'clamp(2rem, 4vw, 3.5rem)',
-            position: 'relative', overflow: 'hidden',
-            boxShadow: `0 24px 64px ${service.glowColor}`,
-            marginTop: '3rem',
-        }}>
+        <motion.div ref={panelRef} key={service.id} variants={panelVariants} initial="hidden" animate="visible" exit="exit" style={{ background: service.gradient, border: `1.5px solid ${service.borderHover}`, borderRadius: '28px', padding: 'clamp(2rem, 4vw, 3.5rem)', position: 'relative', overflow: 'hidden', boxShadow: `0 24px 64px ${service.glowColor}`, marginTop: '3rem' }}>
             <div style={{ position: 'absolute', top: '-100px', right: '-100px', width: '350px', height: '350px', borderRadius: '50%', background: `radial-gradient(circle, ${service.glowColor} 0%, transparent 70%)`, pointerEvents: 'none', opacity: 0.35 }} />
             <motion.button whileHover={{ scale: 1.1, background: 'rgba(167,139,250,0.15)' }} whileTap={{ scale: 0.95 }} onClick={onClose} style={{
                 position: 'absolute', top: '1.5rem', right: '1.5rem',
@@ -479,9 +435,14 @@ function FAQAccordion() {
 export default function Services() {
     const heroRef = useRef(null);
     const titleRef = useRef(null);
+    const containerRef = useRef();
     const processRef = useRef(null);
     const subtitleRef = useRef(null);
     const [activeService, setActiveService] = useState(null);
+
+    useEffect(() => {
+        ScrollTrigger.refresh();
+    }, [activeService]);
 
     const handleSelectService = (service) => setActiveService((prev) => (prev?.id === service.id ? null : service));
     const handleClose = () => setActiveService(null);
@@ -501,12 +462,19 @@ export default function Services() {
                 gsap.fromTo(el,
                     { opacity: 0, y: 45 },
                     {
-                        opacity: 1, y: 0, duration: 0.85, ease: 'power3.out',
-                        scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play reset play reset' },
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.85,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: el,
+                            start: 'top 88%',
+                            toggleActions: 'play none none reverse',
+                        },
                     }
                 );
             });
-        });
+        }, containerRef);
         return () => ctx.revert();
     }, []);
 
@@ -526,20 +494,13 @@ export default function Services() {
     }, []);
 
     return (
-        <div style={{ background: '#faf9f7', minHeight: '100vh', color: '#1e3a5f', fontFamily: "'Inter', sans-serif", overflowX: 'hidden' }}>
+        <div ref={containerRef} style={{ background: '#faf9f7', minHeight: '100vh', color: '#1e3a5f', fontFamily: "'Inter', sans-serif", overflowX: 'hidden' }}>
             <section ref={heroRef} style={{ position: 'relative', minHeight: '90vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', background: 'linear-gradient(160deg, #fdf8ff 0%, #f5f0ff 40%, #fff8f5 100%)' }}>
                 <CelestialField />
                 <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '900px', height: '500px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(167,139,250,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
                 <div style={{ position: 'absolute', bottom: '5%', right: '-8%', width: '360px', height: '360px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(186,230,253,0.2) 0%, transparent 70%)', pointerEvents: 'none' }} />
                 <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', padding: '9rem 1.5rem 4rem', maxWidth: '760px', margin: '0 auto' }}>
-                    <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, ease: 'backOut' }} style={{
-                        display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                        padding: '0.4rem 1.2rem', borderRadius: '30px',
-                        border: '1px solid rgba(167,139,250,0.35)',
-                        background: 'rgba(167,139,250,0.08)',
-                        color: '#7c5cbf', fontSize: '0.78rem', fontWeight: 600,
-                        letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '1.75rem',
-                    }}>✦ What I Offer</motion.div>
+                    <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, ease: 'backOut' }} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.4rem 1.2rem', borderRadius: '30px', border: '1px solid rgba(167,139,250,0.35)', background: 'rgba(167,139,250,0.08)', color: '#7c5cbf', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '1.75rem' }}>✦ What I Offer</motion.div>
                     <h1 ref={titleRef} style={{ fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.02em', fontFamily: "'Cormorant Garamond', serif", marginBottom: '1.25rem' }}>
                         <span style={{ background: 'linear-gradient(135deg, #1e3a5f 30%, #7c5cbf 70%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Structured Guidance.</span>
                         <br />
@@ -558,9 +519,7 @@ export default function Services() {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
                     {OUR_SERVICES.map((s, i) => <ServiceGridCard key={s.id} service={s} index={i} onSelect={handleSelectService} isActive={activeService?.id === s.id} />)}
                 </div>
-                <AnimatePresence mode="wait">
-                    {activeService && <ServiceDetailPanel key={activeService.id} service={activeService} onClose={handleClose} />}
-                </AnimatePresence>
+                <AnimatePresence mode="wait" onExitComplete={() => { requestAnimationFrame(() => { ScrollTrigger.refresh(); }); }}>{activeService && <ServiceDetailPanel key={activeService.id} service={activeService} onClose={handleClose} />}</AnimatePresence>
             </section>
             <VastuCompassSection />
             <JyotishPlanetStrip />
@@ -577,9 +536,7 @@ export default function Services() {
                                 <div style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: 800, fontFamily: "'Cormorant Garamond', serif", background: 'linear-gradient(135deg, rgba(167,139,250,0.35), rgba(196,181,253,0.15))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', lineHeight: 1, marginBottom: '1rem', userSelect: 'none' }}>{step.num}</div>
                                 <div style={{ color: '#1e3a5f', fontWeight: 700, fontSize: '1rem', marginBottom: '0.5rem' }}>{step.title}</div>
                                 <div style={{ color: '#4a6080', fontSize: '0.85rem', lineHeight: 1.75 }}>{step.desc}</div>
-                                {i < PROCESS_STEPS.length - 1 && (
-                                    <div style={{ position: 'absolute', top: '50%', right: '-1px', transform: 'translateY(-50%)', width: '1px', height: '50%', background: 'linear-gradient(180deg, transparent, rgba(167,139,250,0.3), transparent)' }} />
-                                )}
+                                {i < PROCESS_STEPS.length - 1 && <div style={{ position: 'absolute', top: '50%', right: '-1px', transform: 'translateY(-50%)', width: '1px', height: '50%', background: 'linear-gradient(180deg, transparent, rgba(167,139,250,0.3), transparent)' }} />}
                             </motion.div>
                         ))}
                     </div>
@@ -597,14 +554,7 @@ export default function Services() {
                         ))}
                     </div>
                     <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-                        <motion.a href={WHATSAPP_URL} target="_blank" rel="noreferrer" whileHover={{ scale: 1.04, boxShadow: '0 8px 28px rgba(124,92,191,0.3)' }} whileTap={{ scale: 0.97 }} style={{
-                            display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                            padding: '0.8rem 2.2rem',
-                            background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)',
-                            borderRadius: '50px', color: '#fff', fontSize: '0.95rem',
-                            fontWeight: 600, textDecoration: 'none', letterSpacing: '0.04em',
-                            boxShadow: '0 4px 18px rgba(124,92,191,0.22)',
-                        }}>
+                        <motion.a href={WHATSAPP_URL} target="_blank" rel="noreferrer" whileHover={{ scale: 1.04, boxShadow: '0 8px 28px rgba(124,92,191,0.3)' }} whileTap={{ scale: 0.97 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.8rem 2.2rem', background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)', borderRadius: '50px', color: '#fff', fontSize: '0.95rem', fontWeight: 600, textDecoration: 'none', letterSpacing: '0.04em', boxShadow: '0 4px 18px rgba(124,92,191,0.22)' }}>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg> Start Your Consultation on WhatsApp
                         </motion.a>
                     </div>
