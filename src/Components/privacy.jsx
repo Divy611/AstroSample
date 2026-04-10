@@ -1,8 +1,8 @@
 import gsap from 'gsap';
-import { SECTIONS } from './values';
 import { motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { GRADIENT_PRIMARY, SECTIONS } from './values';
 import { Link } from 'react-router-dom/cjs/react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -87,7 +87,7 @@ export default function PrivacyPolicy() {
                         <div style={{ color: '#9585b0', fontSize: '0.85rem' }}>Write to us at{' '} <a href="mailto:privacy@purplecelestia.in" style={{ color: '#7c5cbf', textDecoration: 'none', fontWeight: 600 }}>privacy@purplecelestia.in</a></div>
                     </div>
                     <Link to="/contact" style={{ textDecoration: 'none' }}>
-                        <motion.button whileHover={{ scale: 1.04, boxShadow: '0 8px 28px rgba(124,92,191,0.28)' }} whileTap={{ scale: 0.97 }} style={{ padding: '0.7rem 1.6rem', background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)', border: 'none', borderRadius: '50px', color: '#fff', fontSize: '0.875rem', fontWeight: 700, cursor: 'pointer', letterSpacing: '0.04em' }}>Contact Us →</motion.button>
+                        <motion.button whileHover={{ scale: 1.04, boxShadow: '0 8px 28px rgba(124,92,191,0.28)' }} whileTap={{ scale: 0.97 }} style={{ padding: '0.7rem 1.6rem', background: GRADIENT_PRIMARY, border: 'none', borderRadius: '50px', color: '#fff', fontSize: '0.875rem', fontWeight: 700, cursor: 'pointer', letterSpacing: '0.04em' }}>Contact Us →</motion.button>
                     </Link>
                 </div>
             </section>

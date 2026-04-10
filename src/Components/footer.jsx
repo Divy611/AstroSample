@@ -1,5 +1,6 @@
 import gsap from 'gsap';
 import { motion } from 'framer-motion';
+import { GRADIENT_PRIMARY } from './values';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom/cjs/react-router-dom';
@@ -109,7 +110,7 @@ export default function Footer() {
                     <div className="footer-col">
                         <Link to="/" style={{ textDecoration: 'none' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.2rem' }}>
-                                <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px', color: '#fff', boxShadow: '0 4px 14px rgba(124,92,191,0.22)' }}>✦</div>
+                                <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: GRADIENT_PRIMARY, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px', color: '#fff', boxShadow: '0 4px 14px rgba(124,92,191,0.22)' }}>✦</div>
                                 <span style={{ fontSize: '1.25rem', fontWeight: 700, background: 'linear-gradient(90deg, #3d2b6b, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: "'Cormorant Garamond', serif" }}>The Purple Lady</span>
                             </div>
                         </Link>

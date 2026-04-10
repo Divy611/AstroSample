@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { GRADIENT_PRIMARY } from './values';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -75,7 +76,7 @@ export default function Header() {
             <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
                 <Link to="/" style={{ textDecoration: 'none' }}>
                     <div ref={logoRef} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', cursor: 'pointer' }}>
-                        <div style={{ width: '38px', height: '38px', borderRadius: '50%', background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 14px rgba(124,92,191,0.25)', fontSize: '18px', color: '#fff' }}>✦</div>
+                        <div style={{ width: '38px', height: '38px', borderRadius: '50%', background: GRADIENT_PRIMARY, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 14px rgba(124,92,191,0.25)', fontSize: '18px', color: '#fff' }}>✦</div>
                         <span style={{ fontSize: '1.35rem', fontWeight: 700, letterSpacing: '0.04em', background: 'linear-gradient(90deg, #3d2b6b, #7c5cbf)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: "'Cormorant Garamond', serif" }}>The Purple Lady</span>
                     </div>
                 </Link>
@@ -97,7 +98,7 @@ export default function Header() {
                 {isDesktop
                     ? <motion.button onClick={() => { history.push('/contact'); }} whileHover={{ scale: 1.04, boxShadow: '0 8px 28px rgba(124,92,191,0.35)' }} whileTap={{ scale: 0.97 }} style={{
                         padding: '0.5rem 1.4rem',
-                        background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)',
+                        background: GRADIENT_PRIMARY,
                         border: 'none', borderRadius: '30px',
                         color: '#fff', fontSize: '0.85rem', fontWeight: 600,
                         letterSpacing: '0.05em', cursor: 'pointer',
@@ -127,7 +128,7 @@ export default function Header() {
                         ))}
                         <motion.button variants={mobileItemVariants} whileTap={{ scale: 0.97 }} style={{
                             marginTop: '1rem', width: '100%', padding: '0.75rem',
-                            background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)',
+                            background: GRADIENT_PRIMARY,
                             border: 'none', borderRadius: '10px',
                             color: '#fff', fontSize: '0.95rem', fontWeight: 600,
                             cursor: 'pointer', letterSpacing: '0.05em',

@@ -2,6 +2,8 @@ export const WHATSAPP_URL = process.env.REACT_APP_WHATSAPP_REDIRECT_URL;
 
 export const CATEGORIES = ['All', 'Numerology', 'Vastu', 'Jyotish'];
 
+export const GRADIENT_PRIMARY = 'linear-gradient(150deg, #1e3a5f, #7c5cbf)';
+
 export const SERVICES = [
     {
         icon: '✦',
