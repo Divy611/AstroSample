@@ -2,6 +2,7 @@ import gsap from 'gsap';
 import { motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 import { CelestialField } from './widgets';
+import { GRADIENT_PRIMARY } from './values';
 import { Link } from 'react-router-dom/cjs/react-router-dom';
 
 const NAV_SUGGESTIONS = [
@@ -80,7 +81,7 @@ export default function NotFound() {
                 <p ref={subtitleRef} style={{ fontSize: 'clamp(0.9rem, 2vw, 1.05rem)', lineHeight: 1.85, color: '#6b5c8a', maxWidth: '440px', margin: '0 auto 3.5rem', fontWeight: 400 }}>Even the stars occasionally wander off their charted paths. The page you're seeking doesn't exist — but your journey needn't end here.</p>
                 <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '5rem' }}>
                     <Link to="/" style={{ textDecoration: 'none' }}>
-                        <motion.button whileHover={{ scale: 1.05, boxShadow: '0 8px 32px rgba(124,92,191,0.35)' }} whileTap={{ scale: 0.97 }} style={{ padding: '0.85rem 2.2rem', background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)', border: 'none', borderRadius: '50px', color: '#fff', fontSize: '0.95rem', fontWeight: 700, cursor: 'pointer', letterSpacing: '0.04em', boxShadow: '0 4px 20px rgba(124,92,191,0.28)' }}>Return Home ✦</motion.button>
+                        <motion.button whileHover={{ scale: 1.05, boxShadow: '0 8px 32px rgba(124,92,191,0.35)' }} whileTap={{ scale: 0.97 }} style={{ padding: '0.85rem 2.2rem', background: GRADIENT_PRIMARY, border: 'none', borderRadius: '50px', color: '#fff', fontSize: '0.95rem', fontWeight: 700, cursor: 'pointer', letterSpacing: '0.04em', boxShadow: '0 4px 20px rgba(124,92,191,0.28)' }}>Return Home ✦</motion.button>
                     </Link>
                     <Link to="/contact" style={{ textDecoration: 'none' }}>
                         <motion.button whileHover={{ scale: 1.05, boxShadow: '0 8px 20px rgba(124,92,191,0.15)' }} whileTap={{ scale: 0.97 }} style={{ padding: '0.85rem 2.2rem', background: 'transparent', border: '1.5px solid rgba(124,92,191,0.35)', borderRadius: '50px', color: '#7c5cbf', fontSize: '0.95rem', fontWeight: 600, cursor: 'pointer', letterSpacing: '0.04em', transition: 'border-color 0.2s' }}>Contact Us</motion.button>

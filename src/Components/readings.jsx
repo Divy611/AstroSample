@@ -3,7 +3,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CelestialField, SectionLabel } from './widgets';
-import { READINGS, WHATSAPP_URL, CATEGORIES, FEATURED } from './values';
+import { READINGS, WHATSAPP_URL, CATEGORIES, FEATURED, GRADIENT_PRIMARY } from './values';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -362,7 +362,7 @@ export function NewsletterStrip() {
                     </motion.div>
                     : <motion.form key="form" onSubmit={handleSubmit} style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
                         <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="your@email.com" style={{ background: 'rgba(255,255,255,0.85)', border: '1.5px solid rgba(167,139,250,0.25)', borderRadius: '10px', padding: '0.7rem 1.1rem', color: '#1e3a5f', fontSize: '0.875rem', outline: 'none', minWidth: '220px', transition: 'border-color 0.2s' }} onFocus={(e) => (e.target.style.borderColor = 'rgba(124,92,191,0.55)')} onBlur={(e) => (e.target.style.borderColor = 'rgba(167,139,250,0.25)')} />
-                        <motion.button whileHover={{ scale: 1.03, boxShadow: '0 8px 24px rgba(124,92,191,0.3)' }} whileTap={{ scale: 0.97 }} type="submit" style={{ padding: '0.7rem 1.5rem', background: 'linear-gradient(135deg, #7c5cbf, #a78bfa)', border: 'none', borderRadius: '10px', color: '#fff', fontSize: '0.875rem', fontWeight: 700, cursor: 'pointer', letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>Subscribe ✦</motion.button>
+                        <motion.button whileHover={{ scale: 1.03, boxShadow: '0 8px 24px rgba(124,92,191,0.3)' }} whileTap={{ scale: 0.97 }} type="submit" style={{ padding: '0.7rem 1.5rem', background: GRADIENT_PRIMARY, border: 'none', borderRadius: '10px', color: '#fff', fontSize: '0.875rem', fontWeight: 700, cursor: 'pointer', letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>Subscribe ✦</motion.button>
                     </motion.form>
                 }
             </AnimatePresence>
@@ -449,7 +449,7 @@ export default function Readings() {
                             <motion.button key={cat} onClick={() => setActiveCategory(cat)} whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} style={{
                                 padding: '0.4rem 1rem', borderRadius: '30px',
                                 background: activeCategory === cat
-                                    ? 'linear-gradient(135deg, #7c5cbf, #a78bfa)'
+                                    ? GRADIENT_PRIMARY
                                     : 'rgba(167,139,250,0.07)',
                                 border: activeCategory === cat ? 'none' : '1.5px solid rgba(167,139,250,0.2)',
                                 color: activeCategory === cat ? '#fff' : '#4a6080',
