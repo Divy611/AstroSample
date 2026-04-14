@@ -8,7 +8,7 @@ export const SERVICES = [
     {
         icon: '✦',
         title: 'Numerology',
-        desc: 'Understand the patterns influencing your life and decisions. From personal readings to name alignment and mobile numerology, get clarity that is structured and actionable.',
+        desc: 'Numerology is an ancient metaphysical science that explores the hidden relationship between numbers and the patterns of human life.',
         gradient: 'linear-gradient(135deg, rgba(219,39,119,0.15), rgba(192,132,252,0.05))',
         glow: 'rgba(219, 39, 119, 0.3)',
     },
@@ -402,10 +402,7 @@ export const OUR_SERVICES = [
         accentColor: '#f472b6',
         glowColor: 'rgba(219,39,119,0.4)',
         borderHover: 'rgba(244,114,182,0.5)',
-        desc: `Numerology is the sacred science of numbers — revealing how the vibrational frequencies
-    encoded in your name and birth date shape your personality, relationships, career trajectory, and
-    destiny. We practice both the classical Chaldean system (originating from ancient Babylon) and the
-    Pythagorean method, selecting the most appropriate framework for each client's unique inquiry.`,
+        desc: `Your name is more than something people call you. In the ancient science of Vedic Numerology, it is understood as a powerful energetic code — one that continuously influences how opportunities, relationships, and success unfold in your life. Every letter carries a numerical value. Every number carries a vibration. When these vibrations combine, they form a unique energetic pattern — a pattern that interacts with your life path every single day.`,
         offerings: [
             { name: 'Life Path & Destiny Reading', duration: '60 min', price: '₹1,500' },
             { name: 'Name Correction Consultation', duration: '75 min', price: '₹2,000' },
@@ -414,10 +411,10 @@ export const OUR_SERVICES = [
             { name: 'Relationship Compatibility', duration: '60 min', price: '₹1,800' },
         ],
         benefits: [
-            'Discover your core life path number and its meaning',
-            "Align your name's vibration with your destiny",
-            'Choose business names that attract abundance',
-            'Understand recurring patterns in your relationships',
+            'Gradual improvement in overall well-being and energy levels',
+            "Increased confidence, self-belief, and personal presence",
+            'A deeper sense of direction, purpose, and inner alignment',
+            'Noticeable improvement in financial flow and stability',
         ],
     },
     {

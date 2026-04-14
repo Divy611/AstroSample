@@ -71,7 +71,7 @@ function CalendlyWidget({ url, onEventScheduled }) {
     return <div ref={ref} style={{ minWidth: '100%', height: '680px', borderRadius: '18px', overflow: 'hidden', border: '1.5px solid rgba(167,139,250,0.18)' }} />;
 }
 
-function BookSession() {
+function BookSession() {//eslint-disable-line
     const ref = useRef(null);
     const [step, setStep] = useState('select');
     const [selectedService, setService] = useState('');
@@ -168,7 +168,6 @@ function BookSession() {
         { id: 'done', label: 'Confirmed' },
     ];
     const stepIndex = STEPS.findIndex((s) => s.id === step);
-
     return (
         <section ref={ref} style={{ padding: '7rem 1.5rem', background: 'linear-gradient(180deg, #faf9f7 0%, rgba(245,240,255,0.55) 50%, #fdf8ff 100%)', position: 'relative', overflow: 'hidden' }}>
             {[...Array(10)].map((_, i) => <div key={i} style={{ position: 'absolute', width: `${1.2 + (i % 2) * 0.8}px`, height: `${1.2 + (i % 2) * 0.8}px`, borderRadius: '50%', background: i % 2 === 0 ? 'rgba(167,139,250,0.5)' : 'rgba(104,150,200,0.4)', top: `${6 + (i * 21 % 88)}%`, left: `${3 + (i * 29 % 94)}%`, animation: `twinkleB ${2 + (i % 3)}s ease-in-out infinite`, animationDelay: `${i * 0.4}s`, pointerEvents: 'none' }} />)}
@@ -790,7 +789,7 @@ export default function Contact() {
                     {CONTACT_METHODS.map((m, i) => <ContactMethodCard key={m.label} method={m} index={i} />)}
                 </div>
             </section>
-            <BookSession />
+            {/*<BookSession />*/}
             <AstralPathSection />
             <section style={{ padding: '0 1.5rem 7rem', maxWidth: '1200px', margin: '0 auto' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem', alignItems: 'start' }}>

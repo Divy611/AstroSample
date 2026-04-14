@@ -352,7 +352,7 @@ function ServiceDetailPanel({ service, onClose }) {
                                     <div style={{ color: '#1e3a5f', fontSize: '0.88rem', fontWeight: 600, marginBottom: '0.15rem' }}>{o.name}</div>
                                     <div style={{ color: '#7a94b0', fontSize: '0.75rem' }}>{o.duration}</div>
                                 </div>
-                                <div style={{ color: service.accentColor, fontSize: '0.88rem', fontWeight: 700, whiteSpace: 'nowrap', padding: '0.2rem 0.65rem', borderRadius: '20px', background: `${service.accentColor}12`, border: `1px solid ${service.accentColor}28` }}>{o.price}</div>
+                                {/*<div style={{ color: service.accentColor, fontSize: '0.88rem', fontWeight: 700, whiteSpace: 'nowrap', padding: '0.2rem 0.65rem', borderRadius: '20px', background: `${service.accentColor}12`, border: `1px solid ${service.accentColor}28` }}>{o.price}</div>*/}
                             </motion.div>
                         ))}
                     </div>
